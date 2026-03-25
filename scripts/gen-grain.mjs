@@ -1,6 +1,3 @@
-// scripts/gen-grain.mjs
-// Run: node scripts/gen-grain.mjs
-// Source: https://sharp.pixelplumbing.com/api-constructor (noise option)
 import sharp from 'sharp';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -16,15 +13,15 @@ await sharp({
   create: {
     width: 200,
     height: 200,
-    channels: 1,          // Greyscale — minimizes file size
+    channels: 1,
     noise: {
       type: 'gaussian',
       mean: 128,
-      sigma: 30,           // Controls noise intensity; 30 = subtle grain
+      sigma: 30,
     },
   },
 })
-  .webp({ quality: 50, lossless: false })  // ~2KB output target
+  .webp({ quality: 50 })
   .toFile(OUTPUT);
 
-console.log(`grain.webp written to ${OUTPUT}`);
+console.log('grain.webp written to', OUTPUT);
