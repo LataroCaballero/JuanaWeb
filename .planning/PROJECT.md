@@ -12,7 +12,8 @@ El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D anim
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Design system estricto: Electric Blue #0055ff, Organic Brutalism, Space Grotesk, Work Sans, 0px radius, sin bordes de línea — *Validated in Phase 01: foundation-design-system*
+- [x] Grain overlay y texturas propias del sistema visual — *Validated in Phase 01: foundation-design-system*
 
 ### Active
 
@@ -20,8 +21,6 @@ El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D anim
 - [ ] Sección "Nuestra historia" / Tribu Nomade — quiénes son, por qué existen
 - [ ] Sección Menú — vistazo de productos con precios
 - [ ] Sección Ubicaciones — Iron Man (San Juan) + Cara Sur (Barreal), horarios
-- [ ] Design system estricto: Electric Blue #0055ff, Organic Brutalism, Space Grotesk, Work Sans, 0px radius, sin bordes de línea
-- [ ] Grain overlay y texturas propias del sistema visual
 - [ ] Marquee animado con identidad de marca
 - [ ] Performance-first: carga ultra rápida en Vercel
 - [ ] Soporte óptimo para animaciones y 3D (arquitectura de islands / lazy loading)
@@ -97,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-25 after milestone v1.0 start*
+*Last updated: 2026-03-25 — Phase 01 complete: Astro 5 + Tailwind v4 scaffold, design tokens, self-hosted fonts, grain overlay, BaseLayout*
