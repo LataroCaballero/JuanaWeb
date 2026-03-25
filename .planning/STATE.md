@@ -1,19 +1,63 @@
-# State: Juana House — Landing Page
+# Project State
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D animado, el Electric Blue, la tipografía brutal.
-**Current focus:** Defining requirements
+**Current focus:** Phase 1 — Foundation & Design System
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-03-25 — Milestone v1.0 started
+Phase: 1 of 5 (Foundation & Design System)
+Plan: 0 of ? in current phase
+Status: Ready to plan
+Last activity: 2026-03-25 — Roadmap created, milestone v1.0 initialized
+
+Progress: [░░░░░░░░░░] 0%
+
+## Performance Metrics
+
+**Velocity:**
+- Total plans completed: 0
+- Average duration: -
+- Total execution time: 0 hours
+
+**By Phase:**
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| - | - | - | - |
+
+**Recent Trend:**
+- Last 5 plans: -
+- Trend: -
+
+*Updated after each plan completion*
 
 ## Accumulated Context
 
-(None yet — milestone just started)
+### Decisions
+
+Decisions are logged in PROJECT.md Key Decisions table.
+Recent decisions affecting current work:
+
+- [Setup]: Astro 5 (no 6) + Tailwind v4 via `@tailwindcss/vite` (NOT `@astrojs/tailwind` — instala v3 silenciosamente)
+- [Setup]: Three.js vanilla r183 para hero 3D (no R3F — overhead innecesario sin React en el resto del sitio)
+- [Setup]: IntersectionObserver para inicializar Three.js (no `client:visible` — no funciona en componentes .astro)
+
+### Pending Todos
+
+None yet.
+
+### Blockers/Concerns
+
+- [Phase 2]: El logo SVG aun no existe — necesita `<path>` elements limpios sin `<use>` ni `<symbol>`. Prototipar antes de Phase 2.
+- [Phase 3]: Horarios de operacion por ubicacion (Iron Man + Cara Sur) deben confirmarse con el cliente — blocker de contenido para Phase 3.
+- [Phase 4]: Todas las imagenes son placeholders lh3.googleusercontent.com — fotografia real necesaria antes de Phase 4.
+
+## Session Continuity
+
+Last session: 2026-03-25
+Stopped at: Roadmap creado, STATE.md inicializado. Listo para planear Phase 1.
+Resume file: None

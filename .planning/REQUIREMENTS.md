@@ -92,7 +92,7 @@ Diferidos al próximo milestone. Tracked pero fuera del roadmap actual.
 
 ## Traceability
 
-Qué fases cubren qué requirements. Actualizado durante creación del roadmap.
+Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1.0.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
@@ -127,4 +127,4 @@ Qué fases cubren qué requirements. Actualizado durante creación del roadmap.
 
 ---
 *Requirements defined: 2026-03-25*
-*Last updated: 2026-03-25 after initial definition*
+*Last updated: 2026-03-25 after roadmap v1.0 creation*
