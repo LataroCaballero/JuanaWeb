@@ -1,0 +1,26 @@
+{
+  "name": "juana-house",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/space-grotesk": "^5.0.0",
+    "@fontsource/work-sans": "^5.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-darwin-arm64": "^4.2.2",
+    "@tailwindcss/oxide-darwin-universal": "^4.2.2",
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.2.2",
+    "@tailwindcss/oxide-linux-arm64-gnu": "^4.2.2"
+  }
+}
