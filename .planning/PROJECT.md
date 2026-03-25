@@ -66,6 +66,19 @@ El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D anim
 | Tailwind CSS v4 | Ya usado en el HTML de referencia, sistema de tokens bien definido, output mínimo de CSS | — Pending |
 | Contenido estático hardcodeado | v1 no necesita CMS — facilita performance y simplifica el deploy | — Pending |
 
+## Current Milestone: v1.0 Landing Page Completa
+
+**Goal:** Lanzar el sitio completo de Juana House — identidad de marca total, contenido real, performance-first en Astro + Vercel.
+
+**Target features:**
+- Hero con logo 3D animado (smiley con ojos-flecha)
+- Sección "Nuestra historia" / Tribu Nomade
+- Sección Menú con productos y precios
+- Sección Ubicaciones (Iron Man + Cara Sur) con horarios
+- Design system estricto (Electric Blue, Organic Brutalism, 0px radius, grain overlay)
+- Marquee animado con identidad de marca
+- Responsive mobile-first + Performance (Astro + Vercel)
+
 ## Evolution
 
 This document evolves at phase transitions and milestone boundaries.
@@ -84,4 +97,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-25 after initialization*
+*Last updated: 2026-03-25 after milestone v1.0 start*
