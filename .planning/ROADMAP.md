@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Electric Blue `#0055ff` es visible en los computed styles de DevTools (confirma que Tailwind v4 tokens funcionan, no v3)
   3. Las fuentes Space Grotesk y Work Sans cargan desde `/fonts/` local — DevTools Network no muestra requests a fonts.googleapis.com
   4. El grain overlay aparece como textura visual sobre el fondo oscuro sin causar jank en scroll (tile WebP, no feTurbulence)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 01-P01-scaffold-tokens.PLAN.md — Scaffold Astro 5 + Tailwind v4 with complete @theme token system
+- [ ] 01-P02-layout-fonts-grain.PLAN.md — Grain generation, BaseLayout with font preloads, smoke-test page
 **UI hint**: yes
 
 ### Phase 2: Three.js Hero
@@ -85,7 +88,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/? | Not started | - |
+| 1. Foundation & Design System | 0/2 | Planning complete | - |
 | 2. Three.js Hero | 0/? | Not started | - |
 | 3. Content Sections | 0/? | Not started | - |
 | 4. Motion & Image Pipeline | 0/? | Not started | - |
