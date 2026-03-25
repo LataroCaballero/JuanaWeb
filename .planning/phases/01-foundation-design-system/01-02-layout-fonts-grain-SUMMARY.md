@@ -124,6 +124,16 @@ None - no external service configuration required.
 - Grain overlay renders via `body::after` in global.css — no Phase 2 work needed
 - Fonts load from `/_astro/` hashed paths — zero Google Fonts CDN requests confirmed
 
+## Self-Check: PASSED
+
+- FOUND: scripts/gen-grain.mjs
+- FOUND: public/assets/grain.webp
+- FOUND: src/layouts/BaseLayout.astro
+- FOUND: src/pages/index.astro
+- FOUND: dist/index.html
+- FOUND commit 2ab2663 (Task 1)
+- FOUND commit 01709c9 (Task 2)
+
 ---
 *Phase: 01-foundation-design-system*
 *Completed: 2026-03-25*
