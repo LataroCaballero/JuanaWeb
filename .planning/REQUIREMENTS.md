@@ -10,8 +10,8 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 ### Setup & Design System (SETUP)
 
 - [x] **SETUP-01**: El proyecto levanta con Astro 5 + Tailwind v4 (`@tailwindcss/vite`), `output: "static"`, y tokens `@theme` completos del sistema visual
-- [ ] **SETUP-02**: Fonts Space Grotesk (700/900) y Work Sans (500) son self-hosted vía `@fontsource` con preloads en `<head>` (sin Google Fonts CDN)
-- [ ] **SETUP-03**: `BaseLayout.astro` renderiza `<html class="dark" lang="es">` con `@custom-variant dark` declarado y grain overlay usando WebP tile (no SVG feTurbulence)
+- [x] **SETUP-02**: Fonts Space Grotesk (700/900) y Work Sans (500) son self-hosted vía `@fontsource` con preloads en `<head>` (sin Google Fonts CDN)
+- [x] **SETUP-03**: `BaseLayout.astro` renderiza `<html class="dark" lang="es">` con `@custom-variant dark` declarado y grain overlay usando WebP tile (no SVG feTurbulence)
 - [x] **SETUP-04**: La paleta completa (Electric Blue `#0055ff`, Surface `#131313`, On-Surface `#e5e2e1`), el sistema de 0px radius, y las dos familias tipográficas están disponibles como Tailwind utilities
 
 ### Hero 3D (HERO)
@@ -97,8 +97,8 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SETUP-01 | Phase 1 | Complete |
-| SETUP-02 | Phase 1 | Pending |
-| SETUP-03 | Phase 1 | Pending |
+| SETUP-02 | Phase 1 | Complete |
+| SETUP-03 | Phase 1 | Complete |
 | SETUP-04 | Phase 1 | Complete |
 | HERO-01 | Phase 2 | Pending |
 | HERO-02 | Phase 2 | Pending |

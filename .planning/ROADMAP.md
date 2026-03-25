@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 Plans:
 - [ ] 01-P01-scaffold-tokens.PLAN.md — Scaffold Astro 5 + Tailwind v4 with complete @theme token system
-- [ ] 01-P02-layout-fonts-grain.PLAN.md — Grain generation, BaseLayout with font preloads, smoke-test page
+- [x] 01-P02-layout-fonts-grain.PLAN.md — Grain generation, BaseLayout with font preloads, smoke-test page
 **UI hint**: yes
 
 ### Phase 2: Three.js Hero

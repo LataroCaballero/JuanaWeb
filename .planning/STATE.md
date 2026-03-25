@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 01-01-scaffold-tokens-PLAN.md
-last_updated: "2026-03-25T22:02:58.442Z"
+status: Phase complete — ready for verification
+stopped_at: Completed 01-02-layout-fonts-grain-PLAN.md
+last_updated: "2026-03-25T22:07:22.190Z"
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -47,6 +47,7 @@ Plan: 2 of 2
 
 *Updated after each plan completion*
 | Phase 01-foundation-design-system P01 | 8 | 1 tasks | 9 files |
+| Phase 01-foundation-design-system P02 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -62,6 +63,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-design-system]: grain.webp in public/assets/ not src/assets/ — CSS string references to src/assets/ break in Vite build
 - [Phase 01-foundation-design-system]: Component tokens (nav-blur, glow-blur) in :root not @theme — don't map to Tailwind utility namespaces
 - [Phase 01-foundation-design-system]: @tailwindcss/oxide platform bindings in optionalDependencies for Node 18 / cross-platform compat
+- [Phase 01-foundation-design-system]: grain.webp in public/assets/ (not src/assets/) so CSS url string references survive Vite build without hashing
+- [Phase 01-foundation-design-system]: Vite ?url import for @fontsource woff2 files produces content-hashed /_astro/ URLs for font preloads without manual file management
+- [Phase 01-foundation-design-system]: BaseLayout wraps all pages — established pattern for dark html class, font preloads, and SEO/OG meta
 
 ### Pending Todos
 
@@ -75,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-25T22:02:58.440Z
-Stopped at: Completed 01-01-scaffold-tokens-PLAN.md
+Last session: 2026-03-25T22:07:22.188Z
+Stopped at: Completed 01-02-layout-fonts-grain-PLAN.md
 Resume file: None
