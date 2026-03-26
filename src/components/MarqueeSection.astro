@@ -1,0 +1,29 @@
+<section class="bg-electric py-12 overflow-hidden whitespace-nowrap">
+  <div class="marquee-track flex font-display font-bold text-8xl text-white/20 uppercase tracking-tighter select-none">
+    <!-- First copy of phrase set -->
+    <span class="mx-8">JUANA HOUSE</span>
+    <span class="mx-8">JUANATRUCK®</span>
+    <span class="mx-8">NOMAD SOUL</span>
+    <span class="mx-8">COFFEE ON YOUR WAY</span>
+    <!-- Second copy — required for seamless translateX(-50%) loop (per RESEARCH.md Pitfall 4) -->
+    <span class="mx-8">JUANA HOUSE</span>
+    <span class="mx-8">JUANATRUCK®</span>
+    <span class="mx-8">NOMAD SOUL</span>
+    <span class="mx-8">COFFEE ON YOUR WAY</span>
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee 20s linear infinite;
+  }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation-play-state: paused;
+    }
+  }
+</style>
