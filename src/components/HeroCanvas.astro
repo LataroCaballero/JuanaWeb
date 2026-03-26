@@ -1,0 +1,75 @@
+---
+---
+
+<section id="hero" class="hero-section">
+  <h1 class="hero-headline">COFFEE ON YOUR WAY</h1>
+  <div id="hero-canvas-wrapper" role="presentation" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 48px 0;
+  }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1.0;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    color: var(--color-on-surface);
+    padding-left: clamp(1rem, 5vw, 4rem);
+  }
+
+  #hero-canvas-wrapper {
+    width: 45vmin;
+    aspect-ratio: 1 / 1;
+    z-index: 100;
+    margin-left: -48px;
+    justify-self: start;
+  }
+
+  @media (max-width: 767px) {
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px 0;
+    }
+
+    .hero-headline {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    #hero-canvas-wrapper {
+      width: 70vw;
+      margin-left: 0;
+      margin-top: -24px;
+      align-self: center;
+    }
+  }
+</style>
+
+<script>
+  const wrapper = document.getElementById('hero-canvas-wrapper');
+  if (wrapper) {
+    const observer = new IntersectionObserver(
+      async (entries) => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect();
+          const { initHeroCanvas } = await import('../scripts/hero-canvas.ts');
+          await initHeroCanvas(wrapper);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(wrapper);
+  }
+</script>
