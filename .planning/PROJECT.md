@@ -14,14 +14,17 @@ El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D anim
 
 - [x] Design system estricto: Electric Blue #0055ff, Organic Brutalism, Space Grotesk, Work Sans, 0px radius, sin bordes de línea — *Validated in Phase 01: foundation-design-system*
 - [x] Grain overlay y texturas propias del sistema visual — *Validated in Phase 01: foundation-design-system*
+- [x] Sección "Nuestra historia" / Tribu Nomade — editorial layout con copy de la narrativa nómade — *Validated in Phase 03: content-sections*
+- [x] Sección Ubicaciones — Iron Man (San Juan) + Cara Sur (Barreal) con CTA a Instagram (per D-09) — *Validated in Phase 03: content-sections*
+- [x] Marquee animado con brand phrases, pausa con prefers-reduced-motion — *Validated in Phase 03: content-sections*
+- [x] Nav flotante con glassmorphism al scroll — *Validated in Phase 03: content-sections*
+- [x] Footer con Instagram, copyright y tagline — *Validated in Phase 03: content-sections*
 
 ### Active
 
 - [ ] Hero con logo 3D animado (smiley con ojos-flecha, identidad de marca central)
-- [ ] Sección "Nuestra historia" / Tribu Nomade — quiénes son, por qué existen
 - [ ] Sección Menú — vistazo de productos con precios
-- [ ] Sección Ubicaciones — Iron Man (San Juan) + Cara Sur (Barreal), horarios
-- [ ] Marquee animado con identidad de marca
+- [ ] Motion: scroll reveals en Historia y Ubicaciones (GSAP ScrollTrigger)
 - [ ] Performance-first: carga ultra rápida en Vercel
 - [ ] Soporte óptimo para animaciones y 3D (arquitectura de islands / lazy loading)
 - [ ] Responsive: mobile-first
@@ -96,4 +99,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-25 — Phase 01 complete: Astro 5 + Tailwind v4 scaffold, design tokens, self-hosted fonts, grain overlay, BaseLayout*
+*Last updated: 2026-03-26 — Phase 03 complete: Nav, Historia, Marquee, Ubicaciones, Footer built as Astro components, wired into index.astro*
