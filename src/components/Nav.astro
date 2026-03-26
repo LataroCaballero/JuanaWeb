@@ -1,0 +1,49 @@
+---
+---
+<header id="main-nav" class="fixed top-0 left-0 right-0 z-50">
+  <nav class="flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto">
+    <!-- Left: Brand logotype -->
+    <a href="/" class="font-display font-bold text-3xl text-electric tracking-tighter uppercase italic">
+      JUANA HOUSE
+    </a>
+
+    <!-- Center: Anchor nav links (hidden on mobile < md) -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#historia"
+         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:bg-electric hover:text-white transition-none px-4 py-3 min-h-[44px] flex items-center">
+        NUESTRA HISTORIA
+      </a>
+      <a href="#ubicaciones"
+         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:bg-electric hover:text-white transition-none px-4 py-3 min-h-[44px] flex items-center">
+        UBICACIONES
+      </a>
+    </div>
+
+    <!-- Right: Instagram external link -->
+    <a href="https://instagram.com/juana.onyourday"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:text-electric transition-none">
+      @juana.onyourday ↗
+    </a>
+  </nav>
+</header>
+
+<style>
+  #main-nav {
+    background: transparent;
+    transition: none;
+  }
+  #main-nav.scrolled {
+    backdrop-filter: blur(var(--nav-blur));
+    -webkit-backdrop-filter: blur(var(--nav-blur));
+    background: var(--nav-bg);
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+</script>
