@@ -39,39 +39,46 @@ Declared values (multiples of 4 only):
 | sm | 8px | Tight metadata spacing, nav link gap units |
 | md | 16px | Default element inner padding, nav horizontal padding |
 | lg | 24px | Card internal padding bottom row, footer gap |
-| xl | 32px | Historia copy block internal padding |
-| 2xl | 48px | Section vertical padding (mobile) |
+| xl | 32px | Historia copy block internal padding, marquee phrase separator |
+| 2xl | 48px | Section vertical padding (mobile), footer vertical, marquee vertical |
 | 3xl | 64px | Section vertical padding (desktop), historia grid gap override |
 
 Exceptions:
-- Nav horizontal padding: 24px left/right (`px-6`)
-- Nav vertical padding: 16px top/bottom (`py-4`)
-- Historia section: `py-32` (128px) top/bottom — reference-matched editorial proportions
-- Ubicaciones cards: `p-12` (48px) inner padding for bottom overlaid text block
-- Footer: `py-12` (48px) vertical, `px-8` (32px) horizontal
-- Marquee section: `py-12` (48px) — identity stamp height rhythm
-- Touch targets minimum: 44px height for all interactive nav links and CTA buttons
+
+| Value | Class | Justification |
+|-------|-------|---------------|
+| 24px left/right | `px-6` | Nav horizontal padding — matches editorial column inset |
+| 16px top/bottom | `py-4` | Nav vertical padding — compact header height |
+| 128px top/bottom | `py-32` | Historia section vertical rhythm — reference-matched editorial proportions from juanaV1.html |
+| 48px inner (cards) | `p-12` | Ubicaciones card bottom text block inner padding — generous overlay readable zone |
+| 48px vertical | `py-12` | Footer and Marquee vertical — identity stamp height rhythm |
+| 32px horizontal | `px-8` | Footer horizontal padding — matched to content column |
+| 96px inner | `p-24` | Historia copy column padding at `md:` breakpoint — editorial measure breathing room for 5-column copy block |
+| 44px min-height | touch targets | Minimum height for all interactive nav links and CTA buttons |
 
 ---
 
 ## Typography
 
+Four sizes declared. Marquee uses the Display token.
+
 | Role | Font | Size | Weight | Line Height | Letter Spacing | Transform |
 |------|------|------|--------|-------------|----------------|-----------|
-| Body | Work Sans | 16px (1rem) | 500 | 1.5 | normal | none |
-| Label / Metadata | Space Grotesk | 11px (0.7rem) | 700 | 1.2 | 0.2em–0.3em | uppercase |
-| Heading | Space Grotesk | 60px (3.75rem) | 700 | 1.0 (leading-none) | tighter (−2%) | uppercase |
-| Display / Hero | Space Grotesk | 96px–128px (6rem–8rem) | 700 | 0.85–1.0 | tighter (−4%) | uppercase |
-| Marquee | Space Grotesk | 96px (6rem) | 700 | 1.0 | tighter | uppercase |
+| Label / Metadata | Space Grotesk | 11px (`text-[11px]`) | 700 | 1.2 | 0.2em–0.3em | uppercase |
+| Body | Work Sans | 16px (`text-base`) | 500 | 1.5 | normal | none |
+| Heading | Space Grotesk | 60px (`text-[60px]`) | 700 | 1.0 (`leading-none`) | tighter (−2%) | uppercase |
+| Display | Space Grotesk | 96px (`text-[96px]` / `text-8xl`) | 700 | 0.85–1.0 | tighter (−4%) | uppercase |
 
 Notes:
 - Only 2 font weights in use: 500 (Work Sans body) and 700 (Space Grotesk display/heading/label)
 - Space Grotesk max available weight is 700 — do NOT use 900 (not in @fontsource package)
-- Marquee text: `text-white/20` — white at 20% opacity over `bg-electric` (#0055ff)
-- Historia copy body: 18px (`text-lg`) in Work Sans 500 — editorial readable measure
-- Location card headlines: 60px (`text-6xl`) Space Grotesk 700, white, `leading-none tracking-tighter`
-- All nav links: Space Grotesk 700 uppercase tracking-tighter
-- Footer copyright: Work Sans 500, `text-xs` (12px), uppercase, `tracking-widest`, `text-on-surface/60`
+- Marquee text uses Display token (96px `text-8xl`) at `text-white/20` — white at 20% opacity over `bg-electric`
+- Historia heading: Heading token (60px) on mobile, Display token (96px `md:text-8xl`) on desktop
+- Historia body copy: Body token (16px `text-base`) Work Sans 500 — same size as all body text
+- UI chrome exception — nav logotype and footer brand use Space Grotesk 700 at intermediate scales (`text-3xl` 30px nav, `text-xl` 20px footer) for layout proportion. These are not content type sizes; they are branded UI chrome elements mapped to the Heading font family at reduced scale for nav/footer contexts. Do not introduce additional content sizes based on these elements.
+- All label chips, copyright, tagline, address lines, hours CTA: Label token (11px `text-[11px]`)
+- All nav links: Space Grotesk 700 uppercase tracking-tighter — Label font family, nav-scale sizing (`text-[11px]` or `text-sm` collapsed to Label token)
+- Footer copyright: Work Sans 500, Label token (11px), uppercase, `tracking-widest`, `text-on-surface/60`
 
 Source: DESIGN.md + juanaV1.html reference + global.css
 
@@ -94,12 +101,12 @@ Accent reserved for:
 3. Nav logotype "JUANA HOUSE" text color (`text-electric`)
 4. Footer brand logotype text color (`text-electric`)
 5. Nav link hover state background (`hover:bg-electric`)
-6. "Ver horarios en @juana.onyourday" CTA link underline/hover on location cards
-7. Left border accent on any Historia pull-quote or editorial block (`border-l-8 border-electric`)
+6. "Ver horarios en @juana.onyourday" CTA link hover on location cards
+7. Left border accent on Historia editorial divider block (`border-t-4 border-electric`)
 
 The "No-Line Rule" is enforced: section breaks are defined exclusively by background color shifts (surface → surface-low → surface → electric → surface), never by 1px borders or dividers.
 
-Zero Roundedness is enforced: `border-radius: 0px` on all elements. This is already declared in `@theme` in global.css.
+Zero Roundedness is enforced: `border-radius: 0px` on all elements. Already declared in `@theme` in global.css.
 
 Source: DESIGN.md §2, §4 + 03-CONTEXT.md D-01 + global.css @theme
 
@@ -109,33 +116,40 @@ Source: DESIGN.md §2, §4 + 03-CONTEXT.md D-01 + global.css @theme
 
 ### Nav (Nav.astro)
 
+Primary focal point: "JUANA HOUSE" logotype in Electric Blue — the sole colored element in a transparent/dark nav bar.
+
 - Position: `fixed` top, `z-50`, full-width
 - Pre-scroll: `bg-transparent`
 - Post-scroll (scrollY > 80px): `backdrop-blur-[var(--nav-blur)]` + `bg-[var(--nav-bg)]` — CSS vars already defined (`--nav-blur: 20px`, `--nav-bg: rgba(19,19,19,0.85)`)
 - Scroll listener: small `<script>` in Nav.astro toggles a `.scrolled` class at `scrollY > 80`
 - Layout: `flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto`
-- Left: "JUANA HOUSE" logotype — Space Grotesk 700, `text-3xl`, `text-electric`, `tracking-tighter`, `italic`
-- Center: anchor links NUESTRA HISTORIA (`#historia`) + UBICACIONES (`#ubicaciones`) — Space Grotesk 700, uppercase, `tracking-tighter`, `text-on-surface/80`, `hover:bg-electric hover:text-white transition-none`
-- Right: external link `@juana.onyourday ↗` → `https://instagram.com/juana.onyourday` target `_blank` rel `noopener noreferrer`
+- Left: "JUANA HOUSE" logotype — Space Grotesk 700, `text-3xl` (UI chrome exception, see Typography Notes), `text-electric`, `tracking-tighter`, `italic`
+- Center: anchor links NUESTRA HISTORIA (`#historia`) + UBICACIONES (`#ubicaciones`) — Space Grotesk 700, `text-[11px]`, uppercase, `tracking-tighter`, `text-on-surface/80`, `hover:bg-electric hover:text-white transition-none`, min-height 44px
+- Right: external link `@juana.onyourday ↗` → `https://instagram.com/juana.onyourday` target `_blank` rel `noopener noreferrer` — Space Grotesk 700, `text-[11px]`, uppercase, `tracking-tighter`
 - No "Contactar" button — deferred (Claude's Discretion: skip per minimalist approach)
 - Mobile: center links hidden at `< md` breakpoint (`hidden md:flex`)
 
 ### Historia Section (HistoriaSection.astro)
+
+Primary focal point: The full-bleed image placeholder (7 of 12 columns) with the floating "TRIBU NOMADE" Electric Blue label chip in the upper-left corner.
 
 - Background: `bg-surface-low` (`#1a1a1a`)
 - Section ID: `id="historia"`
 - Layout: `grid grid-cols-1 md:grid-cols-12` with `items-center overflow-hidden py-32`
 - Image column: `md:col-span-7 relative group`
   - Placeholder: `<div>` with `bg-surface-high aspect-video w-full` (no external image requests in Phase 3)
-  - "TRIBU NOMADE" label: `absolute -top-12 -left-12 bg-electric text-white px-8 py-4 font-display font-bold text-2xl z-20`
-  - "SIEMPRE EN CASA." stamp: `absolute bottom-0 right-0 bg-white text-black p-4 font-display font-bold uppercase text-sm tracking-tighter`
-- Copy column: `md:col-span-5 p-12 md:p-24 flex flex-col justify-center`
-  - Heading: "THE JUANA TRUCK®" — Space Grotesk 700, `text-6xl md:text-8xl`, `tracking-tighter`, `uppercase`, `leading-none`, `mb-8`
-  - Body copy: Spanish brand narrative (see Copywriting Contract below) — Work Sans 500, `text-lg`, `text-on-surface/70`, `mb-12`, `max-w-sm`
-  - Editorial divider block: `border-t-4 border-electric pt-8` with "NOW ROAMING" label in `text-electric` + "SAN JUAN / BARREAL" in `text-3xl font-bold italic tracking-tighter`
+  - "TRIBU NOMADE" label: `absolute -top-12 -left-12 bg-electric text-white px-8 py-4 font-display font-bold text-[60px] z-20` — Heading token size (decorative floating label)
+  - "SIEMPRE EN CASA." stamp: `absolute bottom-0 right-0 bg-white text-black p-4 font-display font-bold uppercase text-[11px] tracking-tighter` — Label token
+- Copy column: `md:col-span-5 p-16 md:p-24 flex flex-col justify-center`
+  - Note: `md:p-24` (96px) is a declared Spacing Scale Exception — see Spacing Scale Exceptions table
+  - Heading: "THE JUANA TRUCK®" — Space Grotesk 700, `text-[60px] md:text-8xl`, `tracking-tighter`, `uppercase`, `leading-none`, `mb-8` — Heading token mobile, Display token desktop
+  - Body copy: Spanish brand narrative (see Copywriting Contract below) — Work Sans 500, `text-base` (`text-[16px]`), `text-on-surface/70`, `mb-12`, `max-w-sm` — Body token (16px)
+  - Editorial divider block: `border-t-4 border-electric pt-8` with "NOW ROAMING" label in `text-electric text-[11px] font-bold uppercase tracking-widest` (Label token) + "SAN JUAN / BARREAL" in `text-[60px] font-bold italic tracking-tighter` (Heading token)
 - Mobile: image stacks above copy at `< md` breakpoint
 
 ### Ubicaciones Section (UbicacionesSection.astro)
+
+Primary focal point: Two full-bleed edge-to-edge image cards with Electric Blue overlay tint that clears on hover to reveal the location color.
 
 - Background: `bg-surface` (`#131313`)
 - Section ID: `id="ubicaciones"`
@@ -145,22 +159,24 @@ Source: DESIGN.md §2, §4 + 03-CONTEXT.md D-01 + global.css @theme
   - Overlay: `absolute inset-0 bg-electric/20 mix-blend-multiply group-hover:bg-transparent transition-all duration-700` (removed on hover to reveal color)
   - Grayscale CSS: placeholder div uses `grayscale group-hover:grayscale-0 transition-all duration-700` when real image is added in Phase 4
   - Bottom text block: `absolute bottom-0 left-0 p-12`
-    - Label chip: `bg-black text-white px-4 py-1 text-xs font-display font-bold tracking-widest uppercase mb-4 block w-fit`
+    - Label chip: `bg-black text-white px-4 py-1 text-[11px] font-display font-bold tracking-widest uppercase mb-4 block w-fit` — Label token
       - Iron Man: "CURRENT DOCK"
       - Cara Sur: "MOUNTAIN POST"
-    - Heading: `font-display font-bold text-6xl text-white uppercase leading-none tracking-tighter`
+    - Heading: `font-display font-bold text-[60px] text-white uppercase leading-none tracking-tighter` — Heading token
       - Iron Man: "IRON MAN / SAN JUAN"
       - Cara Sur: "CARA SUR / BARREAL"
-    - Address: `text-white/80 font-bold mt-4 uppercase tracking-[0.2em] text-sm`
+    - Address: `text-white/80 font-bold mt-4 uppercase tracking-[0.2em] text-[11px]` — Label token
       - Iron Man: "DEL BONO 383 SUR, SAN JUAN, ARGENTINA J5400"
       - Cara Sur: "BARREAL, SAN JUAN, ARGENTINA"
-    - Hours CTA: `text-white/60 font-body text-xs uppercase tracking-widest mt-2` — "Ver horarios en @juana.onyourday" as `<a>` linking to `https://instagram.com/juana.onyourday` target `_blank`
+    - Hours CTA: `text-white/60 font-body text-[11px] uppercase tracking-widest mt-2` — Label token — "Ver horarios en @juana.onyourday" as `<a>` linking to `https://instagram.com/juana.onyourday` target `_blank`
 
 ### Marquee Section (MarqueeSection.astro)
 
+Primary focal point: Full-bleed Electric Blue band — the sole chromatic section break — with ghosted Display-size text scrolling continuously.
+
 - Background: `bg-electric` (`#0055ff`) — full-bleed
 - Layout: `py-12 overflow-hidden whitespace-nowrap`
-- Track: single `<div>` with `flex font-display font-bold text-8xl text-white/20 uppercase tracking-tighter select-none`
+- Track: single `<div>` with `flex font-display font-bold text-8xl text-white/20 uppercase tracking-tighter select-none` — Display token (96px `text-8xl`)
 - Animation: `@keyframes marquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }` — `20s linear infinite`
 - Phrases (repeated twice to fill track): `JUANA HOUSE` / `JUANATRUCK®` / `NOMAD SOUL` / `COFFEE ON YOUR WAY`
 - Separator between phrases: `mx-8` (32px horizontal margin per phrase span)
@@ -169,15 +185,17 @@ Source: DESIGN.md §2, §4 + 03-CONTEXT.md D-01 + global.css @theme
 
 ### Footer Section (FooterSection.astro)
 
+Primary focal point: "JUANA HOUSE" in Electric Blue on the left — mirrors the nav logotype and closes the page visual frame.
+
 - Background: `bg-surface` (`#131313`)
 - Layout: `flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-[1920px] mx-auto`
 - Left block:
-  - Brand logotype: "JUANA HOUSE" — Space Grotesk 700, `text-xl`, `text-electric`
-  - Copyright: "©2024 JUANA HOUSE. URBAN NOMAD EDITORIAL." — Work Sans 500, `text-xs`, `uppercase`, `tracking-widest`, `text-on-surface/60`
-- Center: Instagram link "@juana.onyourday" — `<a href="https://instagram.com/juana.onyourday" target="_blank" rel="noopener noreferrer"` — Work Sans 500, `text-xs`, `uppercase`, `tracking-widest`, `text-on-surface/60`, `hover:text-electric transition-none`
+  - Brand logotype: "JUANA HOUSE" — Space Grotesk 700, `text-xl` (UI chrome exception, see Typography Notes), `text-electric`
+  - Copyright: "©2024 JUANA HOUSE. URBAN NOMAD EDITORIAL." — Work Sans 500, `text-[11px]`, `uppercase`, `tracking-widest`, `text-on-surface/60` — Label token
+- Center: Instagram link "@juana.onyourday" — `<a href="https://instagram.com/juana.onyourday" target="_blank" rel="noopener noreferrer"` — Work Sans 500, `text-[11px]`, `uppercase`, `tracking-widest`, `text-on-surface/60`, `hover:text-electric transition-none` — Label token
 - Right block:
-  - "Established 2024" — Space Grotesk 700, `text-electric`, `tracking-tighter`, `uppercase`
-  - Tagline chip: "URBAN NOMAD EDITORIAL" — Space Grotesk 700, `text-[0.6rem]`, `text-on-surface/40`, `uppercase`, `tracking-widest`
+  - "Established 2024" — Space Grotesk 700, `text-electric`, `tracking-tighter`, `uppercase`, `text-[11px]` — Label token
+  - Tagline chip: "URBAN NOMAD EDITORIAL" — Space Grotesk 700, `text-[11px]`, `text-on-surface/40`, `uppercase`, `tracking-widest` — Label token
 - No border-top — section break from MarqueeSection (Electric Blue) is sufficient visual separation
 
 ---
