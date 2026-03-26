@@ -37,7 +37,7 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Ubicaciones (UBIC)
 
-- [x] **UBIC-01**: El usuario puede ver las dos ubicaciones (Iron Man — Del Bono 383 Sur, San Juan; Cara Sur — Barreal) con nombre de marca, dirección completa y horarios de operación por día
+- [x] **UBIC-01**: El usuario puede ver las dos ubicaciones (Iron Man — Del Bono 383 Sur, San Juan; Cara Sur — Barreal) con nombre de marca, dirección completa y CTA a Instagram para horarios actualizados (per D-09 — horarios hardcodeados diferidos a confirmación del cliente)
 - [x] **UBIC-02**: Las location cards tienen transición grayscale-to-color on hover que revela la foto del lugar
 - [x] **UBIC-03**: El usuario tiene un CTA "Ver dónde estamos hoy" que linkea al Instagram del truck para info de ubicación en tiempo real
 
