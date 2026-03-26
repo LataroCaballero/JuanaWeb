@@ -60,11 +60,12 @@ Plans:
   3. El visitante puede leer las dos ubicaciones (Iron Man y Cara Sur) con nombre de marca, dirección completa y horarios de operación por día
   4. Las location cards cambian de escala de grises a color al hacer hover sobre ellas
   5. El footer muestra el link a @juana.onyourday, el copyright y el tagline de marca
-**Plans:** 3/3 plans complete
+**Plans:** 4 plans (3 complete + 1 gap closure)
 Plans:
 - [x] 03-01-PLAN.md — Nav.astro (glassmorphism scroll listener) + HistoriaSection.astro (editorial 12-col grid, Spanish copy)
 - [x] 03-02-PLAN.md — UbicacionesSection.astro (grayscale hover cards) + MarqueeSection.astro (CSS-only marquee)
 - [x] 03-03-PLAN.md — FooterSection.astro + index.astro wiring + build verification + human checkpoint
+- [ ] 03-04-PLAN.md — Gap closure: fix UBIC-03 CTA copy + align UBIC-01 to D-09 Instagram-redirect delivery
 **UI hint**: yes
 
 ### Phase 4: Motion & Image Pipeline
@@ -97,6 +98,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 0/2 | Planning complete | - |
 | 2. Three.js Hero | 1/2 | In Progress|  |
-| 3. Content Sections | 3/3 | Complete   | 2026-03-26 |
+| 3. Content Sections | 3/4 | Gap closure planned | - |
 | 4. Motion & Image Pipeline | 0/? | Not started | - |
 | 5. Deploy & Audit | 0/? | Not started | - |
