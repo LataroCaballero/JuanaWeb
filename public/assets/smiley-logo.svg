@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Outer circle: centered at 100,100 with radius 90 -->
+  <path d="M100,10 A90,90 0 1,0 100.001,10 Z" fill="#0055ff"/>
+  <!-- Left arrow-eye: chevron pointing right, left side of face -->
+  <path d="M62,85 L75,100 L62,115 L70,115 L83,100 L70,85 Z" fill="#131313"/>
+  <!-- Right arrow-eye: chevron pointing right, right side of face -->
+  <path d="M117,85 L130,100 L117,115 L125,115 L138,100 L125,85 Z" fill="#131313"/>
+</svg>
