@@ -1,12 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import historiaTruck from '../assets/images/historia-truck.jpg';
 ---
 <section id="historia" class="bg-surface-low py-32 overflow-hidden">
   <div class="grid grid-cols-1 md:grid-cols-12 items-center">
 
     <!-- Image column: 7 of 12 cols -->
     <div class="md:col-span-7 relative">
-      <!-- Phase 3: placeholder div. Phase 4: replace with Astro <Image /> -->
-      <div class="bg-surface-high aspect-video w-full"></div>
+      <Image
+        src={historiaTruck}
+        alt="The Juana Truck — TRIBU NOMADE, SIEMPRE EN CASA"
+        class="w-full aspect-video object-cover"
+        loading="lazy"
+      />
 
       <!-- "TRIBU NOMADE" floating label — bleeds outside column (do NOT put overflow-hidden on this column) -->
       <div class="absolute -top-12 -left-12 bg-electric text-white px-8 py-4 font-display font-bold text-[60px] z-20 uppercase leading-none">
