@@ -1,25 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCanvas from '../components/HeroCanvas.astro';
 ---
 
 <BaseLayout>
-  <main class="min-h-screen flex flex-col items-center justify-center gap-8 p-8">
-    <h1 class="font-display text-5xl font-bold tracking-tight text-on-surface uppercase">
-      JUANA HOUSE
-    </h1>
-    <div class="bg-electric px-8 py-4 text-white font-display font-bold uppercase tracking-wide">
-      Electric Blue Token Test
-    </div>
-    <p class="font-body text-on-surface text-base">
-      Work Sans 500 body text renders here.
-    </p>
-    <div class="flex gap-4">
-      <div class="bg-surface-low px-6 py-4 text-on-surface">surface-low</div>
-      <div class="bg-surface-high px-6 py-4 text-on-surface">surface-high</div>
-      <div class="bg-electric-light px-6 py-4 text-surface">electric-light</div>
-    </div>
-    <div class="rounded-lg bg-surface-high px-6 py-4 text-on-surface">
-      rounded-lg = 0px (zero roundedness)
-    </div>
+  <main>
+    <HeroCanvas />
   </main>
 </BaseLayout>
