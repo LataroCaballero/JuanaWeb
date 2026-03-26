@@ -65,7 +65,7 @@ Plans:
 - [x] 03-01-PLAN.md — Nav.astro (glassmorphism scroll listener) + HistoriaSection.astro (editorial 12-col grid, Spanish copy)
 - [x] 03-02-PLAN.md — UbicacionesSection.astro (grayscale hover cards) + MarqueeSection.astro (CSS-only marquee)
 - [x] 03-03-PLAN.md — FooterSection.astro + index.astro wiring + build verification + human checkpoint
-- [ ] 03-04-PLAN.md — Gap closure: fix UBIC-03 CTA copy + align UBIC-01 to D-09 Instagram-redirect delivery
+- [x] 03-04-PLAN.md — Gap closure: fix UBIC-03 CTA copy + align UBIC-01 to D-09 Instagram-redirect delivery
 **UI hint**: yes
 
 ### Phase 4: Motion & Image Pipeline
