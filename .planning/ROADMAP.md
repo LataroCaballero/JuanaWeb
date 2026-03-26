@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation & Design System** - Scaffold Astro + Tailwind v4 con tokens completos, fonts self-hosted, BaseLayout con dark mode y grain overlay
 - [ ] **Phase 2: Three.js Hero** - Logo smiley 3D animado con IntersectionObserver, LCP anchor en h1 estático, CLS prevention
-- [ ] **Phase 3: Content Sections** - Nav flotante, marquee CSS, historia editorial, ubicaciones con horarios, footer
+- [x] **Phase 3: Content Sections** - Nav flotante, marquee CSS, historia editorial, ubicaciones con horarios, footer (completed 2026-03-26)
 - [ ] **Phase 4: Motion & Image Pipeline** - GSAP ScrollTrigger sobre HTML existente, todas las imágenes a WebP via Astro Image
 - [ ] **Phase 5: Deploy & Audit** - Static deploy en Vercel, Lighthouse Mobile en URL real
 
@@ -60,11 +60,11 @@ Plans:
   3. El visitante puede leer las dos ubicaciones (Iron Man y Cara Sur) con nombre de marca, dirección completa y horarios de operación por día
   4. Las location cards cambian de escala de grises a color al hacer hover sobre ellas
   5. El footer muestra el link a @juana.onyourday, el copyright y el tagline de marca
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 Plans:
 - [x] 03-01-PLAN.md — Nav.astro (glassmorphism scroll listener) + HistoriaSection.astro (editorial 12-col grid, Spanish copy)
 - [x] 03-02-PLAN.md — UbicacionesSection.astro (grayscale hover cards) + MarqueeSection.astro (CSS-only marquee)
-- [ ] 03-03-PLAN.md — FooterSection.astro + index.astro wiring + build verification + human checkpoint
+- [x] 03-03-PLAN.md — FooterSection.astro + index.astro wiring + build verification + human checkpoint
 **UI hint**: yes
 
 ### Phase 4: Motion & Image Pipeline
@@ -97,6 +97,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 0/2 | Planning complete | - |
 | 2. Three.js Hero | 1/2 | In Progress|  |
-| 3. Content Sections | 2/3 | In Progress|  |
+| 3. Content Sections | 3/3 | Complete   | 2026-03-26 |
 | 4. Motion & Image Pipeline | 0/? | Not started | - |
 | 5. Deploy & Audit | 0/? | Not started | - |

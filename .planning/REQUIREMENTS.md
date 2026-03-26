@@ -55,7 +55,7 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Footer (FOOT)
 
-- [ ] **FOOT-01**: El usuario puede encontrar el link a Instagram (@juana.onyourday), copyright, y el tagline de marca desde el footer
+- [x] **FOOT-01**: El usuario puede encontrar el link a Instagram (@juana.onyourday), copyright, y el tagline de marca desde el footer
 
 ## v2 Requirements
 
@@ -118,7 +118,7 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | PERF-02 | Phase 4 | Pending |
 | PERF-03 | Phase 5 | Pending |
 | PERF-04 | Phase 5 | Pending |
-| FOOT-01 | Phase 3 | Pending |
+| FOOT-01 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 20 total
