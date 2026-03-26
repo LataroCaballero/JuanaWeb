@@ -44,9 +44,9 @@ Plans:
   2. Lighthouse Mobile identifica el `<h1>` "COFFEE ON YOUR WAY" como LCP element — no el canvas Three.js
   3. No hay layout shift al cargar el hero — el espacio del canvas está reservado con aspect-ratio antes de que corra cualquier JS
   4. Abrir y cerrar la página múltiples veces no produce memory leaks de GPU (dispose + forceContextLoss implementados)
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
-- [ ] 02-01-PLAN.md — Install Three.js, create SVG asset, build HeroCanvas component with IO gate and hero-canvas.ts Three.js script
+- [x] 02-01-PLAN.md — Install Three.js, create SVG asset, build HeroCanvas component with IO gate and hero-canvas.ts Three.js script
 - [ ] 02-02-PLAN.md — Automated build verification + visual/functional human checkpoint
 **UI hint**: yes
 
@@ -92,7 +92,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 0/2 | Planning complete | - |
-| 2. Three.js Hero | 0/2 | Planning complete | - |
+| 2. Three.js Hero | 1/2 | In Progress|  |
 | 3. Content Sections | 0/? | Not started | - |
 | 4. Motion & Image Pipeline | 0/? | Not started | - |
 | 5. Deploy & Audit | 0/? | Not started | - |

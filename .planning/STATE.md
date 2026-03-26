@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-25T23:02:34.978Z"
+status: Ready to execute
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-26T00:44:33.228Z"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D animado, el Electric Blue, la tipografía brutal.
-**Current focus:** Phase 01 — foundation-design-system
+**Current focus:** Phase 02 — three-js-hero
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (three-js-hero) — EXECUTING
+Plan: 2 of 2
 
 ## Performance Metrics
 
@@ -48,6 +48,7 @@ Plan: Not started
 *Updated after each plan completion*
 | Phase 01-foundation-design-system P01 | 8 | 1 tasks | 9 files |
 | Phase 01-foundation-design-system P02 | 2min | 2 tasks | 4 files |
+| Phase 02-three-js-hero P01 | 3min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-design-system]: grain.webp in public/assets/ (not src/assets/) so CSS url string references survive Vite build without hashing
 - [Phase 01-foundation-design-system]: Vite ?url import for @fontsource woff2 files produces content-hashed /_astro/ URLs for font preloads without manual file management
 - [Phase 01-foundation-design-system]: BaseLayout wraps all pages — established pattern for dark html class, font preloads, and SEO/OG meta
+- [Phase 02-three-js-hero]: SVG in public/assets/ (not src/assets/) — consistent with grain.webp, avoids Vite asset pipeline
+- [Phase 02-three-js-hero]: Three separate SVG paths extruded individually (circle + 2 eyes) with eyes at z=1 — simpler than compound fill-rule paths
+- [Phase 02-three-js-hero]: Auto-fit scale 3.0/maxDim from Box3 — fits logo at camera z=5 FOV 45 without hardcoded pixel values
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-25T23:02:34.976Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-three-js-hero/02-CONTEXT.md
+Last session: 2026-03-26T00:44:33.227Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: None
