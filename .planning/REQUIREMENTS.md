@@ -23,12 +23,12 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Navegación (NAV)
 
-- [ ] **NAV-01**: El usuario ve una nav flotante que activa glassmorphism (backdrop-blur) al hacer scroll más de 80px
+- [x] **NAV-01**: El usuario ve una nav flotante que activa glassmorphism (backdrop-blur) al hacer scroll más de 80px
 
 ### Historia (HIST)
 
-- [ ] **HIST-01**: El usuario puede leer la historia y filosofía de Juana House (quiénes son, por qué existen, la narrativa nómade) en una sección editorial
-- [ ] **HIST-02**: La sección usa layout editorial de full-bleed con imagen del truck + copy de la Tribu Nomade
+- [x] **HIST-01**: El usuario puede leer la historia y filosofía de Juana House (quiénes son, por qué existen, la narrativa nómade) en una sección editorial
+- [x] **HIST-02**: La sección usa layout editorial de full-bleed con imagen del truck + copy de la Tribu Nomade
 
 ### Marquee (MARQ)
 
@@ -104,9 +104,9 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | HERO-02 | Phase 2 | Complete |
 | HERO-03 | Phase 2 | Complete |
 | HERO-04 | Phase 2 | Complete |
-| NAV-01 | Phase 3 | Pending |
-| HIST-01 | Phase 3 | Pending |
-| HIST-02 | Phase 3 | Pending |
+| NAV-01 | Phase 3 | Complete |
+| HIST-01 | Phase 3 | Complete |
+| HIST-02 | Phase 3 | Complete |
 | MARQ-01 | Phase 3 | Complete |
 | MARQ-02 | Phase 3 | Complete |
 | UBIC-01 | Phase 3 | Complete |
