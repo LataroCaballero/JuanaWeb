@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-26T03:29:32.833Z"
+status: Ready to plan
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-26T03:37:35.685Z"
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 
 ## Current Position
 
-Phase: 04 (Motion & Image Pipeline) — EXECUTING
-Plan: 2 of 2
+Phase: 5
+Plan: Not started
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: 2 of 2
 | Phase 03-content-sections P01 | 3min | 2 tasks | 2 files |
 | Phase 03-content-sections P03 | 2min | 3 tasks | 2 files |
 | Phase 04 P01 | 5 | 2 tasks | 4 files |
+| Phase 04 P02 | 5min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 03-content-sections]: ©2024 static hardcoded (not dynamic JS date) per Copywriting Contract
 - [Phase 04]: gsap.matchMedia() wraps all animations for reactive reduced-motion handling, not static window.matchMedia check
 - [Phase 04]: once: true on ScrollTrigger configs — single-fire reveal, targets section wrappers only to avoid CSS grayscale hover conflict
+- [Phase 04]: Placeholder JPEGs generated at design token color rgb(53,53,52) matching --color-surface-high so placeholders blend visually until real photography is added
+- [Phase 04]: Astro Image component absolute inset-0 w-full h-full object-cover fills h-[600px] ubicacion card containers; grayscale hover CSS classes applied via Image class prop
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T03:29:32.831Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-03-26T03:33:25.799Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
