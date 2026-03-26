@@ -77,9 +77,9 @@ Plans:
   2. Todas las animaciones GSAP se detienen cuando el sistema operativo tiene prefers-reduced-motion activo
   3. DevTools Network en producción no muestra ningún request a lh3.googleusercontent.com ni a fonts.googleapis.com
   4. Todas las imágenes de contenido cargan como WebP — visible en la columna Type del panel Network
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
-- [ ] 04-01-PLAN.md — Install GSAP 3.14.2, create scroll-animations.ts with ScrollTrigger reveals + matchMedia reduced-motion
+- [x] 04-01-PLAN.md — Install GSAP 3.14.2, create scroll-animations.ts with ScrollTrigger reveals + matchMedia reduced-motion
 - [ ] 04-02-PLAN.md — Generate placeholder images, replace divs with Astro Image components, build verification + visual checkpoint
 **UI hint**: yes
 
@@ -102,5 +102,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation & Design System | 0/2 | Planning complete | - |
 | 2. Three.js Hero | 1/2 | In Progress|  |
 | 3. Content Sections | 4/4 | Complete | 2026-03-26 |
-| 4. Motion & Image Pipeline | 0/2 | Planning complete | - |
+| 4. Motion & Image Pipeline | 1/2 | In Progress|  |
 | 5. Deploy & Audit | 0/? | Not started | - |

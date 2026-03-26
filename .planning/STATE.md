@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-26T03:06:57.664Z"
+status: Ready to execute
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-26T03:29:32.833Z"
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 8
-  completed_plans: 8
+  total_plans: 10
+  completed_plans: 9
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D animado, el Electric Blue, la tipografía brutal.
-**Current focus:** Phase 03 — content-sections
+**Current focus:** Phase 04 — Motion & Image Pipeline
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
+Phase: 04 (Motion & Image Pipeline) — EXECUTING
+Plan: 2 of 2
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Plan: Not started
 | Phase 03-content-sections P02 | 8min | 2 tasks | 2 files |
 | Phase 03-content-sections P01 | 3min | 2 tasks | 2 files |
 | Phase 03-content-sections P03 | 2min | 3 tasks | 2 files |
+| Phase 04 P01 | 5 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,8 @@ Recent decisions affecting current work:
 - [Phase 03-content-sections]: Historia image column is bg-surface-high placeholder div — no external requests; Phase 4 replaces with Astro Image component
 - [Phase 03-content-sections]: FooterSection renders as <footer> element outside <main> for correct HTML semantics; Nav placed before <main>
 - [Phase 03-content-sections]: ©2024 static hardcoded (not dynamic JS date) per Copywriting Contract
+- [Phase 04]: gsap.matchMedia() wraps all animations for reactive reduced-motion handling, not static window.matchMedia check
+- [Phase 04]: once: true on ScrollTrigger configs — single-fire reveal, targets section wrappers only to avoid CSS grayscale hover conflict
 
 ### Pending Todos
 
@@ -93,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T02:50:26.896Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-26T03:29:32.831Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None

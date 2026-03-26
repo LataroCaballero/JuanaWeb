@@ -43,8 +43,8 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Motion (MOTN)
 
-- [ ] **MOTN-01**: Las secciones principales (Historia, Ubicaciones) tienen scroll reveals vía GSAP ScrollTrigger al entrar en viewport
-- [ ] **MOTN-02**: Todas las animaciones GSAP pausan bajo `prefers-reduced-motion: reduce` (vía `gsap.matchMedia()`)
+- [x] **MOTN-01**: Las secciones principales (Historia, Ubicaciones) tienen scroll reveals vía GSAP ScrollTrigger al entrar en viewport
+- [x] **MOTN-02**: Todas las animaciones GSAP pausan bajo `prefers-reduced-motion: reduce` (vía `gsap.matchMedia()`)
 
 ### Performance & Deploy (PERF)
 
@@ -112,8 +112,8 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | UBIC-01 | Phase 3 | Complete |
 | UBIC-02 | Phase 3 | Complete |
 | UBIC-03 | Phase 3 | Complete |
-| MOTN-01 | Phase 4 | Pending |
-| MOTN-02 | Phase 4 | Pending |
+| MOTN-01 | Phase 4 | Complete |
+| MOTN-02 | Phase 4 | Complete |
 | PERF-01 | Phase 4 | Pending |
 | PERF-02 | Phase 4 | Pending |
 | PERF-03 | Phase 5 | Pending |
