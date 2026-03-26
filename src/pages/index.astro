@@ -1,10 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 import HeroCanvas from '../components/HeroCanvas.astro';
+import HistoriaSection from '../components/HistoriaSection.astro';
+import UbicacionesSection from '../components/UbicacionesSection.astro';
+import MarqueeSection from '../components/MarqueeSection.astro';
+import FooterSection from '../components/FooterSection.astro';
 ---
 
 <BaseLayout>
+  <Nav />
   <main>
     <HeroCanvas />
+    <HistoriaSection />
+    <UbicacionesSection />
+    <MarqueeSection />
   </main>
+  <FooterSection />
 </BaseLayout>
