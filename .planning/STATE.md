@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Phase 3 context gathered (discuss mode)
-last_updated: "2026-03-26T02:06:47.516Z"
+status: Ready to execute
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-26T02:47:01.897Z"
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 7
+  completed_plans: 6
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D animado, el Electric Blue, la tipografía brutal.
-**Current focus:** Phase 02 — three-js-hero
+**Current focus:** Phase 03 — content-sections
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (content-sections) — EXECUTING
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -49,6 +49,8 @@ Plan: Not started
 | Phase 01-foundation-design-system P01 | 8 | 1 tasks | 9 files |
 | Phase 01-foundation-design-system P02 | 2min | 2 tasks | 4 files |
 | Phase 02-three-js-hero P01 | 3min | 3 tasks | 5 files |
+| Phase 03-content-sections P02 | 8min | 2 tasks | 2 files |
+| Phase 03-content-sections P01 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -70,6 +72,11 @@ Recent decisions affecting current work:
 - [Phase 02-three-js-hero]: SVG in public/assets/ (not src/assets/) — consistent with grain.webp, avoids Vite asset pipeline
 - [Phase 02-three-js-hero]: Three separate SVG paths extruded individually (circle + 2 eyes) with eyes at z=1 — simpler than compound fill-rule paths
 - [Phase 02-three-js-hero]: Auto-fit scale 3.0/maxDim from Box3 — fits logo at camera z=5 FOV 45 without hardcoded pixel values
+- [Phase 03-content-sections]: CSS-only grayscale hover (no GSAP): transition-all duration-700 at 700ms for intentional cinematic reveal
+- [Phase 03-content-sections]: Doubled phrase set in DOM (8 spans) for seamless translateX(-50%) CSS marquee loop without JS
+- [Phase 03-content-sections]: transition: none on Nav.astro glassmorphism — snaps at exactly scrollY > 80 per DESIGN.md no-slow-transitions rule
+- [Phase 03-content-sections]: overflow-hidden only on outer Historia section, NOT on image column — TRIBU NOMADE label bleeds at -top-12 -left-12 by design
+- [Phase 03-content-sections]: Historia image column is bg-surface-high placeholder div — no external requests; Phase 4 replaces with Astro Image component
 
 ### Pending Todos
 
@@ -83,6 +90,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T02:06:47.514Z
-Stopped at: Phase 3 context gathered (discuss mode)
-Resume file: .planning/phases/03-content-sections/03-CONTEXT.md
+Last session: 2026-03-26T02:46:52.668Z
+Stopped at: Completed 03-02-PLAN.md
+Resume file: None

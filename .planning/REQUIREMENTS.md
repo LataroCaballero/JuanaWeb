@@ -16,10 +16,10 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Hero 3D (HERO)
 
-- [ ] **HERO-01**: El usuario ve el logo smiley en 3D animado con rotación idle al entrar en el viewport del hero (Three.js island cargado vía IntersectionObserver — no client:visible)
-- [ ] **HERO-02**: El `<h1>` con "COFFEE ON YOUR WAY" es el LCP element — visible en HTML estático antes de que Three.js cargue
-- [ ] **HERO-03**: El container del canvas Three.js tiene dimensiones reservadas (aspect-ratio) para prevenir CLS mientras carga el island
-- [ ] **HERO-04**: Los GPU resources de Three.js (geometría, materiales, renderer) se limpian correctamente al desmontar (dispose + forceContextLoss)
+- [x] **HERO-01**: El usuario ve el logo smiley en 3D animado con rotación idle al entrar en el viewport del hero (Three.js island cargado vía IntersectionObserver — no client:visible)
+- [x] **HERO-02**: El `<h1>` con "COFFEE ON YOUR WAY" es el LCP element — visible en HTML estático antes de que Three.js cargue
+- [x] **HERO-03**: El container del canvas Three.js tiene dimensiones reservadas (aspect-ratio) para prevenir CLS mientras carga el island
+- [x] **HERO-04**: Los GPU resources de Three.js (geometría, materiales, renderer) se limpian correctamente al desmontar (dispose + forceContextLoss)
 
 ### Navegación (NAV)
 
@@ -32,14 +32,14 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Marquee (MARQ)
 
-- [ ] **MARQ-01**: El usuario ve un marquee animado con brand phrases ("JUANA HOUSE / JUANATRUCK / NOMAD SOUL / COFFEE ON YOUR WAY") sobre fondo Electric Blue
-- [ ] **MARQ-02**: El marquee pausa cuando el usuario tiene `prefers-reduced-motion: reduce` activo
+- [x] **MARQ-01**: El usuario ve un marquee animado con brand phrases ("JUANA HOUSE / JUANATRUCK / NOMAD SOUL / COFFEE ON YOUR WAY") sobre fondo Electric Blue
+- [x] **MARQ-02**: El marquee pausa cuando el usuario tiene `prefers-reduced-motion: reduce` activo
 
 ### Ubicaciones (UBIC)
 
-- [ ] **UBIC-01**: El usuario puede ver las dos ubicaciones (Iron Man — Del Bono 383 Sur, San Juan; Cara Sur — Barreal) con nombre de marca, dirección completa y horarios de operación por día
-- [ ] **UBIC-02**: Las location cards tienen transición grayscale-to-color on hover que revela la foto del lugar
-- [ ] **UBIC-03**: El usuario tiene un CTA "Ver dónde estamos hoy" que linkea al Instagram del truck para info de ubicación en tiempo real
+- [x] **UBIC-01**: El usuario puede ver las dos ubicaciones (Iron Man — Del Bono 383 Sur, San Juan; Cara Sur — Barreal) con nombre de marca, dirección completa y horarios de operación por día
+- [x] **UBIC-02**: Las location cards tienen transición grayscale-to-color on hover que revela la foto del lugar
+- [x] **UBIC-03**: El usuario tiene un CTA "Ver dónde estamos hoy" que linkea al Instagram del truck para info de ubicación en tiempo real
 
 ### Motion (MOTN)
 
@@ -100,18 +100,18 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | SETUP-02 | Phase 1 | Complete |
 | SETUP-03 | Phase 1 | Complete |
 | SETUP-04 | Phase 1 | Complete |
-| HERO-01 | Phase 2 | Pending |
-| HERO-02 | Phase 2 | Pending |
-| HERO-03 | Phase 2 | Pending |
-| HERO-04 | Phase 2 | Pending |
+| HERO-01 | Phase 2 | Complete |
+| HERO-02 | Phase 2 | Complete |
+| HERO-03 | Phase 2 | Complete |
+| HERO-04 | Phase 2 | Complete |
 | NAV-01 | Phase 3 | Pending |
 | HIST-01 | Phase 3 | Pending |
 | HIST-02 | Phase 3 | Pending |
-| MARQ-01 | Phase 3 | Pending |
-| MARQ-02 | Phase 3 | Pending |
-| UBIC-01 | Phase 3 | Pending |
-| UBIC-02 | Phase 3 | Pending |
-| UBIC-03 | Phase 3 | Pending |
+| MARQ-01 | Phase 3 | Complete |
+| MARQ-02 | Phase 3 | Complete |
+| UBIC-01 | Phase 3 | Complete |
+| UBIC-02 | Phase 3 | Complete |
+| UBIC-03 | Phase 3 | Complete |
 | MOTN-01 | Phase 4 | Pending |
 | MOTN-02 | Phase 4 | Pending |
 | PERF-01 | Phase 4 | Pending |
