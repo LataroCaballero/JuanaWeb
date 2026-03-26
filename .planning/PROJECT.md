@@ -24,8 +24,8 @@ El visitante debe sentir la marca en los primeros 3 segundos — el logo 3D anim
 
 - [ ] Hero con logo 3D animado (smiley con ojos-flecha, identidad de marca central)
 - [ ] Sección Menú — vistazo de productos con precios
-- [ ] Motion: scroll reveals en Historia y Ubicaciones (GSAP ScrollTrigger)
-- [ ] Performance-first: carga ultra rápida en Vercel
+- [x] Motion: scroll reveals en Historia y Ubicaciones (GSAP ScrollTrigger) — *Validated in Phase 04: motion-image-pipeline*
+- [x] Performance-first: imágenes WebP locales, cero requests externos — *Validated in Phase 04: motion-image-pipeline*
 - [ ] Soporte óptimo para animaciones y 3D (arquitectura de islands / lazy loading)
 - [ ] Responsive: mobile-first
 
@@ -99,4 +99,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-26 — Phase 03 complete: Nav, Historia, Marquee, Ubicaciones, Footer built as Astro components, wired into index.astro*
+*Last updated: 2026-03-26 — Phase 04 complete: GSAP ScrollTrigger scroll-reveals on Historia + Ubicaciones, gsap.matchMedia() reduced-motion support, Astro Image WebP pipeline, zero external image/font requests*
