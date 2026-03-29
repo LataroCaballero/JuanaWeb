@@ -1,8 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Outer circle: centered at 100,100 with radius 90 -->
-  <path d="M100,10 A90,90 0 1,0 100.001,10 Z" fill="#0055ff"/>
-  <!-- Left arrow-eye: chevron pointing right, left side of face -->
-  <path d="M62,85 L75,100 L62,115 L70,115 L83,100 L70,85 Z" fill="#131313"/>
-  <!-- Right arrow-eye: chevron pointing right, right side of face -->
-  <path d="M117,85 L130,100 L117,115 L125,115 L138,100 L125,85 Z" fill="#131313"/>
+  <!-- Red background -->
+  <rect width="200" height="200" fill="#c13301"/>
+
+  <!-- Circle ring (white, no fill) -->
+  <circle cx="100" cy="100" r="74" fill="none" stroke="white" stroke-width="11"/>
+
+  <!-- Left eye: house/up-arrow shape -->
+  <path d="M75,57 L57,73 L62,73 L62,89 L88,89 L88,73 L93,73 Z" fill="white"/>
+
+  <!-- Right eye: house/up-arrow shape -->
+  <path d="M125,57 L107,73 L112,73 L112,89 L138,89 L138,73 L143,73 Z" fill="white"/>
+
+  <!-- Smile: thick U arc -->
+  <path d="M67,108 A38,38 0 0,0 133,108" fill="none" stroke="white" stroke-width="11" stroke-linecap="round"/>
 </svg>

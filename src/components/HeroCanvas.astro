@@ -236,8 +236,13 @@
   const frame = document.getElementById('pdf-frame') as HTMLIFrameElement;
   const closeBtn = document.getElementById('pdf-close')!;
 
+  const isMobile = () => window.innerWidth < 768;
+
   function openPdf(src: string) {
-    // #toolbar=0&navpanes=0 hides Chrome/Edge built-in toolbar
+    if (isMobile()) {
+      window.open(src, '_blank', 'noopener,noreferrer');
+      return;
+    }
     frame.src = src + '#toolbar=0&navpanes=0';
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
