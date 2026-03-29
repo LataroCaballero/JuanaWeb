@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import historiaTruck from '../assets/images/historia-truck.jpg';
+import historiaTruck from '../assets/images/juana-truck.jpg';
 ---
 <section id="historia" class="bg-surface-low py-32 overflow-hidden">
   <div class="grid grid-cols-1 md:grid-cols-12 items-center">
@@ -10,12 +10,12 @@ import historiaTruck from '../assets/images/historia-truck.jpg';
       <Image
         src={historiaTruck}
         alt="The Juana Truck — TRIBU NOMADE, SIEMPRE EN CASA"
-        class="w-full aspect-video object-cover"
+        class="w-full aspect-video object-cover [object-position:center_70%]"
         loading="lazy"
       />
 
       <!-- "TRIBU NOMADE" floating label — bleeds outside column (do NOT put overflow-hidden on this column) -->
-      <div class="absolute -top-12 -left-12 bg-electric text-white px-8 py-4 font-display font-bold text-[60px] z-20 uppercase leading-none">
+      <div class="absolute -top-12 left-8 bg-electric text-white px-8 py-4 font-display font-bold text-[60px] z-20 uppercase leading-none">
         TRIBU NOMADE
       </div>
 
@@ -29,7 +29,7 @@ import historiaTruck from '../assets/images/historia-truck.jpg';
     <div class="md:col-span-5 p-16 md:p-24 flex flex-col justify-center">
       <!-- Heading: Heading size mobile, Display size desktop -->
       <h2 class="font-display font-bold text-[60px] md:text-8xl tracking-tighter uppercase leading-none mb-8 text-on-surface">
-        THE JUANA TRUCK®
+        JUANA TRUCK®
       </h2>
 
       <!-- Body copy: Spanish brand narrative per D-02 and Copywriting Contract -->

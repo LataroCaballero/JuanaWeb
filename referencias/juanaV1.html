@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JUANA HOUSE | URBAN NOMAD EDITORIAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#9d1d01",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#0055ff",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#ffe1d9",
+                        "surface-container-lowest": "#0e0e0e",
+                        "background": "#131313",
+                        "primary-fixed": "#dce1ff",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#630e00",
+                        "on-secondary-container": "#ffaf9d",
+                        "primary": "#b6c4ff",
+                        "inverse-primary": "#004dea",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed-variant": "#872100",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-primary-fixed": "#001551",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#3b0900",
+                        "surface-tint": "#b6c4ff",
+                        "tertiary-container": "#c13301",
+                        "surface-dim": "#131313",
+                        "tertiary": "#ffb5a0",
+                        "outline-variant": "#434656",
+                        "on-surface-variant": "#c3c5d9",
+                        "surface-variant": "#353534",
+                        "on-tertiary": "#601400",
+                        "on-primary-container": "#e3e6ff",
+                        "tertiary-fixed": "#ffdbd1",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#ffb5a0",
+                        "outline": "#8d90a2",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#8c1800",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "on-primary": "#002780",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "surface-container-highest": "#353534",
+                        "secondary": "#ffb4a4",
+                        "surface-bright": "#3a3939",
+                        "on-secondary-fixed": "#3d0500",
+                        "on-primary-fixed-variant": "#0039b3",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Work Sans"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<div class="grain-overlay fixed inset-0 z-[100]"></div>
+<!-- TopNavBar -->
+<header class="bg-[#131313] dark:bg-[#131313] docked full-width top-0 z-50 bg-[#131313] border-none flat no shadows sticky">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-[1920px] mx-auto">
+<div class="text-3xl font-black text-[#0055ff] tracking-tighter italic font-['Space_Grotesk']">JUANA HOUSE</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] font-bold uppercase tracking-tighter text-[#0055ff] border-b-4 border-[#0055ff] pb-1 transition-none" href="#">MENU</a>
+<a class="font-['Space_Grotesk'] font-bold uppercase tracking-tighter text-white opacity-80 hover:opacity-100 hover:bg-[#0055ff] hover:text-white transition-none" href="#">TRUCK</a>
+<a class="font-['Space_Grotesk'] font-bold uppercase tracking-tighter text-white opacity-80 hover:opacity-100 hover:bg-[#0055ff] hover:text-white transition-none" href="#">LOCATIONS</a>
+<a class="font-['Space_Grotesk'] font-bold uppercase tracking-tighter text-white opacity-80 hover:opacity-100 hover:bg-[#0055ff] hover:text-white transition-none" href="#">CONTACT</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-headline font-black uppercase px-6 py-2 tracking-tighter hover:bg-white hover:text-primary-container transition-none">Contactar</button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-height-[921px] flex flex-col justify-end px-6 md:px-12 py-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale opacity-40" data-alt="Close-up of a high-end espresso machine pulling a shot in a moody industrial setting with dramatic lighting and steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXNBHQ3_XYwfPTnUqanlk7ThMTpDwBrMVUj66TveSZKO2CtwVpHbtDI34MdOLf8dHxaDX4ie8AxzXy1p4ZVAqDFUkuhU_gYhRZ0rcdHRGsyU0xOM6W2aT2CWjMqzBz4G8fuxZ0jx7pGUWo5ATniH08WRpkDjsdFSjcPRlAZxTXvTkT8xBOLZGvPrMTeR1lorNdWqHIwZz1XdaQH5wNGSIV6Dpr2ZzwhJS2HhJRlsHJi-Uk0XQdzMuNDrZhLdP_BRRJxh_MQK3qNuWQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl">
+<div class="flex items-start gap-4 mb-4">
+<span class="bg-primary-container text-white text-[0.7rem] px-2 py-1 font-headline font-black tracking-widest uppercase">ESTABLISHED 2024</span>
+<span class="text-primary font-headline font-black text-xs uppercase tracking-[0.2em]">Urban Nomad Editorial</span>
+</div>
+<h1 class="font-headline font-black text-[12vw] md:text-[10rem] leading-[0.85] tracking-tighter uppercase text-on-background break-words mb-8">
+                    COFFEE <br/>ON YOUR <br/><span class="text-primary-container">WAY</span>
+</h1><div class="flex flex-wrap gap-4 mb-12">
+<a class="bg-[#0055ff] text-white font-headline font-black uppercase px-8 py-3 tracking-tighter hover:bg-white hover:text-[#0055ff] transition-none border-2 border-[#0055ff] inline-block" href="#">
+        House Carta 🇦🇷
+    </a>
+<a class="bg-[#0055ff] text-white font-headline font-black uppercase px-8 py-3 tracking-tighter hover:bg-white hover:text-[#0055ff] transition-none border-2 border-[#0055ff] inline-block" href="#">
+        House Menu 🇺🇸
+    </a>
+<a class="bg-[#0055ff] text-white font-headline font-black uppercase px-8 py-3 tracking-tighter hover:bg-white hover:text-[#0055ff] transition-none border-2 border-[#0055ff] inline-block" href="#">
+        Juana Cakes 🎂
+    </a>
+</div>
+<div class="flex flex-col md:flex-row items-end justify-between gap-8">
+<div class="max-w-md bg-surface-container-highest/80 backdrop-blur-xl p-8 border-l-8 border-primary-container">
+<p class="text-lg md:text-xl font-medium leading-tight mb-4 italic">"The digital street-poster of modern caffeine culture. We move where the city breathes."</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="local_shipping" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="mood" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mood</span>
+</div>
+</div>
+<img class="w-48 h-48 object-contain mix-blend-screen animate-pulse" data-alt="Stylized graphic of a yellow smiley face with arrow eyes on a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1EO7dneWck1sz8eoaCyvm1WG7lofmEt8qg6Udm7wvGEi7OhSeRbG5XY5QXaax9GwjCv__CDIBQgPz3RJ3--X90i2tbZT7bQ5DkCjZSG87vcYWPOCBZHnDdnFTmL1Y2SzcQ_5S7A-WEisCNkTXiUpytQzSKBkUzwGYZ_9dnTg7I6l7jwRuTwNFdIAZRfCVtQ7JfYQq2oGSQtYTdAWXyeSFA142Y9AFsBwCB4d862jQYyiJ4Fb-yVNJgMunKhgU4uZQlNgFk18hgK3E"/>
+</div>
+</div>
+</section>
+<!-- Tribu Nomade Section -->
+<section class="bg-surface-container-low py-32 px-6 overflow-hidden">
+<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-0 items-center">
+<div class="md:col-span-7 relative group">
+<div class="absolute -top-12 -left-12 bg-primary-container text-white px-8 py-4 font-headline font-black text-2xl z-20">TRIBU NOMADE</div>
+<img class="w-full aspect-video object-cover" data-alt="A vintage matte black coffee truck parked in a rugged mountain landscape under a twilight sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiEmdfoyRred5fznTbdviYncSp3lFZy60KSFLWTyB6xcivTqxn-ED9Ba9nDcAl_rOuCGo1gkwI_1r3Ru-DMWWALQXIkEDlo8F8MM0Z_KLmA8vJwkwlzOKyQv06KGvCYlFjp709QwWsLCsL7_3_02bs3lKMplG9grKw4a3H5gTE4_YdOM-azak7LWgMkZk15LoifV1iDbxCzbGYw6yKKEmVfvvH4mz13N3ASdbdkjyQO-Bs33XaKI7PiRpzoV5_NaMKqoxO39XBPvfU"/>
+<div class="absolute bottom-0 right-0 bg-white text-black p-4 font-headline font-bold uppercase text-sm tracking-tighter">
+                        SIEMPRE EN CASA.
+                    </div>
+</div>
+<div class="md:col-span-5 p-12 md:p-24 flex flex-col justify-center">
+<h2 class="font-headline font-black text-6xl md:text-8xl tracking-tighter uppercase mb-8 leading-none">THE <br/>JUANA <br/>TRUCK®</h2>
+<p class="text-on-surface-variant text-lg mb-12 max-w-sm">No fixed walls. No permanent shadows. We are a mobile sanctuary for those who find home in the movement of the street.</p>
+<div class="border-t-4 border-primary-container pt-8">
+<span class="font-headline font-bold text-primary-container block mb-2">NOW ROAMING</span>
+<div class="flex justify-between items-center text-3xl font-black italic tracking-tighter">
+<span>SAN JUAN / BARREAL</span>
+<span class="material-symbols-outlined text-4xl" data-icon="north_east">north_east</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section class="bg-background py-32 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-8">
+<div class="relative">
+<h2 class="font-headline font-black text-8xl md:text-[12rem] tracking-tighter uppercase leading-none">MENU</h2>
+<span class="absolute -bottom-4 right-0 font-headline font-bold text-primary-container text-2xl rotate-3">Un Café Motorizado</span>
+</div>
+<div class="bg-surface-variant p-6 max-w-xs">
+<p class="font-headline font-bold uppercase text-xs tracking-[0.3em] text-primary mb-2">Sourcing Strategy</p>
+<p class="text-sm opacity-70">Ethically sourced beans from the nomadic routes of South America. Roasted in small batches, served in high-octane environments.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16">
+<!-- Item 1 -->
+<div class="flex justify-between items-end border-b-8 border-surface-container-highest pb-4 hover:border-primary-container transition-colors group">
+<div>
+<h3 class="font-headline font-black text-4xl uppercase tracking-tighter group-hover:text-primary transition-colors">FLAT WHITE</h3>
+<p class="text-on-surface-variant text-sm uppercase font-bold tracking-widest mt-1">Double Ristretto / Velvety Milk</p>
+</div>
+<span class="font-headline font-black text-5xl text-primary-container">$4.50</span>
+</div>
+<!-- Item 2 -->
+<div class="flex justify-between items-end border-b-8 border-surface-container-highest pb-4 hover:border-primary-container transition-colors group">
+<div>
+<h3 class="font-headline font-black text-4xl uppercase tracking-tighter group-hover:text-primary transition-colors">HOUSE BLEND</h3>
+<p class="text-on-surface-variant text-sm uppercase font-bold tracking-widest mt-1">1kg Whole Bean / Nomad Selection</p>
+</div>
+<span class="font-headline font-black text-5xl text-primary-container">$18.00</span>
+</div>
+<!-- Item 3 -->
+<div class="flex justify-between items-end border-b-8 border-surface-container-highest pb-4 hover:border-primary-container transition-colors group">
+<div>
+<h3 class="font-headline font-black text-4xl uppercase tracking-tighter group-hover:text-primary transition-colors">COLD BREW</h3>
+<p class="text-on-surface-variant text-sm uppercase font-bold tracking-widest mt-1">12hr Steeping / High Voltage</p>
+</div>
+<span class="font-headline font-black text-5xl text-primary-container">$5.00</span>
+</div>
+<!-- Item 4 -->
+<div class="flex justify-between items-end border-b-8 border-surface-container-highest pb-4 hover:border-primary-container transition-colors group">
+<div>
+<h3 class="font-headline font-black text-4xl uppercase tracking-tighter group-hover:text-primary transition-colors">DIRTY CHAI</h3>
+<p class="text-on-surface-variant text-sm uppercase font-bold tracking-widest mt-1">Spices / Shot of Nomad Soul</p>
+</div>
+<span class="font-headline font-black text-5xl text-primary-container">$5.50</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="grid grid-cols-1 md:grid-cols-2">
+<div class="relative h-[600px] group overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Urban city street scene in San Juan with modern architecture and bright street art murals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVaTM2TKf6wr9qzgo91c0ic_StAyXV7avqoCq-GgZkAnOXTrvBnGbjcwMvLjdsMh3-nq7o5LLDb8N3erEv0eALzxXLtBn-g1l98d7LEaY1rp_KgYl9aCaB0UO9Z_3eaQB-gz13Wz4KXTN7ob_PBbVYU9g8iL0L1xuEVzKJ8d530y6gwgvXICh28OW2kGgUQigZuVwXDqBi7pgbgjGU6vg3P4Wp6aV-sOOYJNH7SMiWyc4frM-o9-GNToWwvBFFyKIzfVktZ5M_jKvS"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply group-hover:bg-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12">
+<span class="bg-black text-white px-4 py-1 text-xs font-headline font-black tracking-widest uppercase mb-4 block w-fit">CURRENT DOCK</span>
+<h4 class="font-headline font-black text-6xl text-white uppercase leading-none tracking-tighter">IRON MAN<br/>SAN JUAN</h4>
+<p class="text-white/80 font-bold mt-4 uppercase tracking-[0.2em] text-sm">AV. LIBERTADOR 1250</p>
+</div>
+</div>
+<div class="relative h-[600px] group overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Vast mountain peaks of the Andes in Barreal with clear blue sky and rugged terrain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiJHw2LhHO-zBHe3m7aZ73nAPaf3AYfAy4EMSKd63OERA2RUtM-eWcFKfV6mgouqDub7mLIXyqVVtkoQX0NlXXxoQVT7zniCM1nYkFqVcBfm3S_znrJ7OEmjijWacXRxML2DfAkXsx7j7dKSw62lrJs48QQ_2pE2fveEeRd4gR2E8hsAtSnL_dwcAhwUGvlUY9NkdElaLZYqTm3smRs0pVD6CJDL2-phldTxSuipFDAtqPWKE-sF2Ft9pdez9Y13MIRX2KttHR47s_"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply group-hover:bg-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12">
+<span class="bg-black text-white px-4 py-1 text-xs font-headline font-black tracking-widest uppercase mb-4 block w-fit">MOUNTAIN POST</span>
+<h4 class="font-headline font-black text-6xl text-white uppercase leading-none tracking-tighter">CARA SUR<br/>BARREAL</h4>
+<p class="text-white/80 font-bold mt-4 uppercase tracking-[0.2em] text-sm">BASE CAMP ALPHA</p>
+</div>
+</div>
+</section>
+<!-- Branding Interstitial -->
+<section class="bg-primary-container py-12 overflow-hidden whitespace-nowrap">
+<div class="flex animate-marquee font-headline font-black text-8xl text-white/20 uppercase tracking-tighter select-none">
+<span class="mx-8">JUANA HOUSE</span>
+<span class="mx-8">JUANATRUCK®</span>
+<span class="mx-8">NOMAD SOUL</span>
+<span class="mx-8">URBAN EDITORIAL</span>
+<span class="mx-8">JUANA HOUSE</span>
+<span class="mx-8">JUANATRUCK®</span>
+<span class="mx-8">NOMAD SOUL</span>
+<span class="mx-8">URBAN EDITORIAL</span>
+</div>
+</section>
+<style>
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                animation: marquee 20s linear infinite;
+            }
+        </style>
+<!-- Featured Product Tile -->
+<section class="px-6 py-32 bg-background">
+<div class="max-w-7xl mx-auto">
+<div class="relative aspect-video md:aspect-[21/9] overflow-hidden">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="High-grain lo-fi photography of a barista pouring latte art in a sunlit mobile truck interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJyWrmRUpAoLy-BiiPgdyC8Fow4Ap1NEPJIdcpYpMb5dH3FdqTZR_TQAJY45hP4P0TYP9odoOuUkW6IacXAKQOw1BowRWPSbzq6sx4AIru679rW3R8cNAV2dHj7jL17ftpWiG37D5xbUonlt2jUvrDQc31sqlQIqicIPbCbV7aaweS9dXRP4jOdB3aQV3ciKD5olgwLIlJoDWAjfp3FsiQkmmoGqgTKzpQ8sNsKlbqLK9tFWH7gPFG_j8OV2UacvHYyhICgGeQt3Wv"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12 max-w-2xl bg-surface-dim/80 backdrop-blur-md">
+<h5 class="font-headline font-black text-5xl text-white uppercase tracking-tighter mb-4 italic">CRAFTED FOR THE STREETS.</h5>
+<p class="text-on-surface-variant text-lg">Every cup is a dispatch from our journey. We don't just serve coffee; we document the nomadic experience through every roast.</p>
+<button class="mt-8 bg-white text-black font-headline font-black uppercase px-12 py-4 hover:bg-primary-container hover:text-white transition-none">READ THE EDITORIAL</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#131313] dark:bg-[#131313] full-width border-t-0 tonal-shift bg-[#1c1c1c] flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-[1920px] mx-auto">
+<div class="flex flex-col gap-2">
+<div class="text-xl font-black text-[#0055ff] font-headline">JUANA HOUSE</div>
+<p class="font-['Work_Sans'] font-medium uppercase text-xs tracking-widest text-white/60">©2024 JUANA HOUSE. URBAN NOMAD EDITORIAL.</p>
+</div>
+<div class="flex gap-12">
+<a class="font-['Work_Sans'] font-medium uppercase text-xs tracking-widest text-white/60 hover:text-[#0055ff] transition-none link-underlining-none" href="#">INSTAGRAM</a>
+<a class="font-['Work_Sans'] font-medium uppercase text-xs tracking-widest text-white/60 hover:text-[#0055ff] transition-none link-underlining-none" href="#">TIKTOK</a>
+<a class="font-['Work_Sans'] font-medium uppercase text-xs tracking-widest text-white/60 hover:text-[#0055ff] transition-none link-underlining-none" href="#">TWITTER</a>
+</div>
+<div class="text-right">
+<span class="block font-headline font-black text-primary-container tracking-tighter uppercase">Established 2024</span>
+<span class="block font-headline font-bold text-white/40 text-[0.6rem] uppercase tracking-widest">Digital Street-Poster System v1.0</span>
+</div>
+</div>
+</footer>
+</body></html>

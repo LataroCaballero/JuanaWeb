@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import ironManPhoto from '../assets/images/ubicacion-iron-man.jpg';
-import caraSurPhoto from '../assets/images/ubicacion-cara-sur.jpg';
+import ironManPhoto from '../assets/images/ironman.png';
+import caraSurPhoto from '../assets/images/cara-sur.png';
 ---
 <section id="ubicaciones" class="bg-surface">
   <div class="grid grid-cols-1 md:grid-cols-2">
@@ -11,7 +11,7 @@ import caraSurPhoto from '../assets/images/ubicacion-cara-sur.jpg';
       <Image
         src={ironManPhoto}
         alt="Iron Man — Del Bono 383 Sur, San Juan"
-        class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+        class="absolute inset-0 w-full h-full object-cover grayscale"
         loading="lazy"
       />
 
@@ -50,7 +50,7 @@ import caraSurPhoto from '../assets/images/ubicacion-cara-sur.jpg';
       <Image
         src={caraSurPhoto}
         alt="Cara Sur — Barreal, San Juan"
-        class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+        class="absolute inset-0 w-full h-full object-cover grayscale"
         loading="lazy"
       />
 

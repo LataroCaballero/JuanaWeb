@@ -1,38 +1,201 @@
 ---
 ---
 
+<!-- PDF Modal -->
+<div id="pdf-modal" aria-hidden="true">
+  <button id="pdf-close" aria-label="Cerrar">&times;</button>
+  <iframe id="pdf-frame" title="Menu PDF" src="" allowfullscreen></iframe>
+</div>
+
 <section id="hero" class="hero-section">
-  <h1 class="hero-headline">COFFEE ON YOUR WAY</h1>
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-top-bar">
+      <span class="hero-badge">ESTABLISHED 2021</span>
+      <span class="hero-editorial">URBAN NOMAD</span>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="hero-line">COFFEE</span>
+      <span class="hero-line">ON YOUR</span>
+      <span class="hero-line hero-accent">DAY</span>
+    </h1>
+
+    <div class="hero-buttons">
+      <button class="hero-btn hero-btn--red" data-pdf="/assets/HOUSE-CARTA.pdf">HOUSE CARTA 🇦🇷</button>
+      <button class="hero-btn hero-btn--red" data-pdf="/assets/HOUSE-MENU.pdf">HOUSE MENU 🇺🇸</button>
+      <button class="hero-btn hero-btn--red" data-pdf="/assets/JUANA-CAKES.pdf">JUANA CAKES 🎂</button>
+    </div>
+  </div>
+
   <div id="hero-canvas-wrapper" role="presentation" aria-hidden="true"></div>
 </section>
 
 <style>
+  /* ── PDF Modal ── */
+  #pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.92);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #pdf-modal.is-open {
+    display: flex;
+  }
+
+  #pdf-frame {
+    width: min(900px, 95vw);
+    height: 90vh;
+    border: none;
+    background: #fff;
+  }
+
+  #pdf-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+
+  #pdf-close:hover {
+    opacity: 1;
+  }
+
+  /* ── Hero ── */
   .hero-section {
+    position: relative;
     display: grid;
     grid-template-columns: 7fr 5fr;
     align-items: center;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 48px 0;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/hero-bg-new.jpg');
+    background-size: cover;
+    background-position: center 75%;
+    filter: grayscale(0.9) brightness(0.45) blur(3px);
+    transform: scale(1.04);
+    z-index: 0;
+  }
+
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url('/assets/grain.webp');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    mix-blend-mode: overlay;
+    opacity: 0.18;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 48px 0 48px clamp(1rem, 5vw, 4rem);
+  }
+
+  .hero-top-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-badge {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #c13301;
+    color: #fff;
+    padding: 3px 8px;
+  }
+
+  .hero-editorial {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-on-surface);
+    opacity: 0.75;
   }
 
   .hero-headline {
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(5rem, 17vw, 13rem);
     font-weight: 700;
-    line-height: 1.0;
+    line-height: 0.9;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.05em;
     color: var(--color-on-surface);
-    padding-left: clamp(1rem, 5vw, 4rem);
+    margin: 0;
   }
 
+  .hero-line { display: block; }
+  .hero-accent { color: #c13301; }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-btn {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #0055ff;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+
+  .hero-btn--red { background: #c13301; }
+  .hero-btn:hover { background: #c13301; }
+  .hero-btn--red:hover { background: #9a2800; }
+
   #hero-canvas-wrapper {
-    width: 45vmin;
+    position: relative;
+    z-index: 3;
+    width: 72vmin;
     aspect-ratio: 1 / 1;
-    z-index: 100;
-    margin-left: -48px;
-    justify-self: start;
+    margin-left: 0px;
+    justify-self: center;
+    margin-left: -20px;
   }
 
   @media (max-width: 767px) {
@@ -40,24 +203,71 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 32px 0;
+    }
+
+    .hero-content {
+      padding: 60px 1rem 0;
+      gap: 1rem;
+      z-index: 2;
     }
 
     .hero-headline {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      font-size: clamp(3.5rem, 20vw, 6rem);
     }
 
     #hero-canvas-wrapper {
-      width: 70vw;
+      width: 75vw;
       margin-left: 0;
-      margin-top: -24px;
+      margin-top: 16px;
       align-self: center;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    #pdf-frame {
+      height: 85vh;
     }
   }
 </style>
 
 <script>
+  // ── PDF modal ──
+  const modal = document.getElementById('pdf-modal')!;
+  const frame = document.getElementById('pdf-frame') as HTMLIFrameElement;
+  const closeBtn = document.getElementById('pdf-close')!;
+
+  function openPdf(src: string) {
+    // #toolbar=0&navpanes=0 hides Chrome/Edge built-in toolbar
+    frame.src = src + '#toolbar=0&navpanes=0';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePdf() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-pdf]').forEach((btn) => {
+    btn.addEventListener('click', () => openPdf(btn.dataset.pdf!));
+  });
+
+  closeBtn.addEventListener('click', closePdf);
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closePdf();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePdf();
+  });
+
+  // ── 3D canvas ──
   const wrapper = document.getElementById('hero-canvas-wrapper');
   if (wrapper) {
     const observer = new IntersectionObserver(

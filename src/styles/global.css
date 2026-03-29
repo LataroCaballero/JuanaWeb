@@ -31,6 +31,10 @@
   --radius-3xl: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Component tokens — not generating utilities; referenced as CSS vars */
 :root {
   --nav-blur:     20px;

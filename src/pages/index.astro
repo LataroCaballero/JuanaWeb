@@ -12,10 +12,19 @@ import FooterSection from '../components/FooterSection.astro';
   <Nav />
   <main>
     <HeroCanvas />
+    <MarqueeSection
+      items={['JUANA HOUSE', 'ALL DAY EVERY DAY']}
+      bg="#c13301"
+      color="rgba(255,255,255,0.25)"
+    />
     <HistoriaSection />
     <UbicacionesSection />
-    <MarqueeSection />
   </main>
+  <MarqueeSection
+    items={['JUANATRUCK®', 'NOMAD SOUL']}
+    bg="#0055ff"
+    color="rgba(255,255,255,0.2)"
+  />
   <FooterSection />
 </BaseLayout>
 

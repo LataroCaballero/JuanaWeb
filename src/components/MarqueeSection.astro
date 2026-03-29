@@ -1,29 +1,49 @@
-<section class="bg-electric py-12 overflow-hidden whitespace-nowrap">
-  <div class="marquee-track flex font-display font-bold text-8xl text-white/20 uppercase tracking-tighter select-none">
-    <!-- First copy of phrase set -->
-    <span class="mx-8">JUANA HOUSE</span>
-    <span class="mx-8">JUANATRUCK®</span>
-    <span class="mx-8">NOMAD SOUL</span>
-    <span class="mx-8">COFFEE ON YOUR WAY</span>
-    <!-- Second copy — required for seamless translateX(-50%) loop (per RESEARCH.md Pitfall 4) -->
-    <span class="mx-8">JUANA HOUSE</span>
-    <span class="mx-8">JUANATRUCK®</span>
-    <span class="mx-8">NOMAD SOUL</span>
-    <span class="mx-8">COFFEE ON YOUR WAY</span>
+---
+interface Props {
+  items: string[];
+  bg?: string;       // css color value
+  color?: string;    // css color value
+  separator?: string;
+}
+
+const {
+  items,
+  bg = '#0055ff',
+  color = 'rgba(255,255,255,0.2)',
+  separator = '·',
+} = Astro.props;
+
+// 4 copies guarantee the track is always wider than the viewport
+// so translateX(-50%) never reveals a gap on any screen size.
+const copies = [...items, ...items, ...items, ...items];
+---
+
+<section class="marquee-section overflow-hidden whitespace-nowrap py-12" style={`background:${bg}`}>
+  <div class="marquee-track flex font-display font-bold text-8xl uppercase tracking-tighter select-none" style={`color:${color}`}>
+    {copies.map((item, i) => (
+      <>
+        <span class="mx-8">{item}</span>
+        <span class="mx-4 opacity-40">{separator}</span>
+      </>
+    ))}
   </div>
 </section>
 
 <style>
   .marquee-track {
-    animation: marquee 20s linear infinite;
+    /* width:max-content ensures the flex row never wraps */
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+    will-change: transform;
   }
-  @keyframes marquee {
+
+  /* Shift by exactly 25% (= 1 of our 4 identical copies) for a perfect loop */
+  @keyframes marquee-scroll {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-25%); }
   }
+
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-      animation-play-state: paused;
-    }
+    .marquee-track { animation-play-state: paused; }
   }
 </style>

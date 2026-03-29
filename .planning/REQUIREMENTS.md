@@ -48,8 +48,8 @@ Requirements para el primer lanzamiento. Cada uno mapea a fases del roadmap.
 
 ### Performance & Deploy (PERF)
 
-- [ ] **PERF-01**: Todas las imágenes de contenido son WebP con lazy loading usando Astro `<Image />` desde `src/assets/`
-- [ ] **PERF-02**: Cero requests a `lh3.googleusercontent.com` o Google Fonts CDN en producción
+- [x] **PERF-01**: Todas las imágenes de contenido son WebP con lazy loading usando Astro `<Image />` desde `src/assets/`
+- [x] **PERF-02**: Cero requests a `lh3.googleusercontent.com` o Google Fonts CDN en producción
 - [ ] **PERF-03**: Lighthouse Mobile en URL de Vercel: LCP < 2.5s, TBT < 200ms, CLS = 0
 - [ ] **PERF-04**: El site está desplegado en Vercel como `output: "static"` (sin SSR, sin serverless functions)
 
@@ -114,8 +114,8 @@ Qué fases cubren qué requirements. Confirmado durante creación del roadmap v1
 | UBIC-03 | Phase 3 | Complete |
 | MOTN-01 | Phase 4 | Complete |
 | MOTN-02 | Phase 4 | Complete |
-| PERF-01 | Phase 4 | Pending |
-| PERF-02 | Phase 4 | Pending |
+| PERF-01 | Phase 4 | Complete |
+| PERF-02 | Phase 4 | Complete |
 | PERF-03 | Phase 5 | Pending |
 | PERF-04 | Phase 5 | Pending |
 | FOOT-01 | Phase 3 | Complete |

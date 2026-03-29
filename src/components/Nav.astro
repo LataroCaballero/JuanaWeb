@@ -3,18 +3,18 @@
 <header id="main-nav" class="fixed top-0 left-0 right-0 z-50">
   <nav class="flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto">
     <!-- Left: Brand logotype -->
-    <a href="/" class="font-display font-bold text-3xl text-electric tracking-tighter uppercase italic">
+    <a href="#hero" id="nav-brand" class="font-display font-bold text-3xl tracking-tighter uppercase">
       JUANA HOUSE
     </a>
 
     <!-- Center: Anchor nav links (hidden on mobile < md) -->
     <div class="hidden md:flex items-center gap-8">
       <a href="#historia"
-         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:bg-electric hover:text-white transition-none px-4 py-3 min-h-[44px] flex items-center">
+         class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center transition-none">
         NUESTRA HISTORIA
       </a>
       <a href="#ubicaciones"
-         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:bg-electric hover:text-white transition-none px-4 py-3 min-h-[44px] flex items-center">
+         class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center transition-none">
         UBICACIONES
       </a>
     </div>
@@ -23,7 +23,7 @@
     <a href="https://instagram.com/juana.onyourday"
        target="_blank"
        rel="noopener noreferrer"
-       class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:text-electric transition-none">
+       class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 transition-none">
       @juana.onyourday ↗
     </a>
   </nav>
@@ -39,11 +39,58 @@
     -webkit-backdrop-filter: blur(var(--nav-blur));
     background: var(--nav-bg);
   }
+
+  /* Brand color controlled by data-section attribute */
+  #nav-brand {
+    color: #c13301; /* default: house red */
+  }
+  #main-nav[data-section="truck"] #nav-brand {
+    color: #0055ff;
+  }
+
+  /* Link hover color */
+  .nav-link:hover {
+    background: #c13301;
+    color: #fff;
+  }
+  #main-nav[data-section="truck"] .nav-link:hover {
+    background: #0055ff;
+    color: #fff;
+  }
 </style>
 
 <script>
-  const nav = document.getElementById('main-nav');
+  const nav = document.getElementById('main-nav')!;
+
+  // ── Scroll blur ──
   window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 80);
+    nav.classList.toggle('scrolled', window.scrollY > 80);
   }, { passive: true });
+
+  // ── Section color swap ──
+  // "truck" sections: historia + ubicaciones
+  // Everything else (hero, top of page) = "house" (red)
+  const truckSections = ['historia', 'ubicaciones'];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = (entry.target as HTMLElement).id;
+          nav.dataset.section = truckSections.includes(id) ? 'truck' : 'house';
+        }
+      });
+    },
+    {
+      // Trigger when a section crosses the top quarter of the viewport
+      rootMargin: '-10% 0px -80% 0px',
+      threshold: 0,
+    }
+  );
+
+  // Observe hero + truck sections
+  ['hero', 'historia', 'ubicaciones'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 </script>
