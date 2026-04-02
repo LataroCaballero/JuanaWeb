@@ -46,7 +46,167 @@ import historiaTruck from '../assets/images/juana-truck.jpg';
           SAN JUAN / BARREAL
         </span>
       </div>
+
+      <!-- Booking CTA -->
+      <button
+        id="open-booking-modal"
+        class="mt-10 bg-electric text-white font-display font-bold text-[13px] uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-black transition-colors duration-200 w-fit"
+      >
+        RESERVAR EL TRUCK
+      </button>
     </div>
 
   </div>
 </section>
+
+<!-- Booking Modal -->
+<div
+  id="booking-modal"
+  class="fixed inset-0 z-[10000] hidden items-center justify-center bg-black/80 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div class="bg-surface w-full max-w-lg relative">
+
+    <!-- Header bar -->
+    <div class="bg-electric px-8 py-5 flex justify-between items-center">
+      <span id="modal-title" class="font-display font-bold text-white uppercase tracking-tighter text-xl">
+        RESERVAR EL TRUCK
+      </span>
+      <button id="close-booking-modal" class="text-white/80 hover:text-white text-2xl leading-none" aria-label="Cerrar">
+        ✕
+      </button>
+    </div>
+
+    <!-- Form -->
+    <form
+      id="booking-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      class="p-8 flex flex-col gap-6"
+    >
+      <div class="flex flex-col gap-2">
+        <label for="booking-name" class="font-body text-[11px] font-bold uppercase tracking-widest text-on-surface/60">
+          Nombre
+        </label>
+        <input
+          id="booking-name"
+          type="text"
+          name="name"
+          required
+          placeholder="Tu nombre"
+          class="bg-surface-low border border-surface-high text-on-surface font-body text-sm px-4 py-3 placeholder:text-on-surface/30 focus:outline-none focus:border-electric"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="booking-email" class="font-body text-[11px] font-bold uppercase tracking-widest text-on-surface/60">
+          Email
+        </label>
+        <input
+          id="booking-email"
+          type="email"
+          name="email"
+          required
+          placeholder="tu@email.com"
+          class="bg-surface-low border border-surface-high text-on-surface font-body text-sm px-4 py-3 placeholder:text-on-surface/30 focus:outline-none focus:border-electric"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="booking-message" class="font-body text-[11px] font-bold uppercase tracking-widest text-on-surface/60">
+          Descripción del evento
+        </label>
+        <textarea
+          id="booking-message"
+          name="message"
+          required
+          rows="4"
+          placeholder="Contanos sobre tu evento — fecha, lugar, cantidad de personas..."
+          class="bg-surface-low border border-surface-high text-on-surface font-body text-sm px-4 py-3 placeholder:text-on-surface/30 focus:outline-none focus:border-electric resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Success / Error messages -->
+      <p id="form-success" class="hidden text-electric font-body text-sm font-bold uppercase tracking-widest">
+        ¡Mensaje enviado! Te contactamos pronto.
+      </p>
+      <p id="form-error" class="hidden text-error font-body text-sm font-bold uppercase tracking-widest">
+        Algo salió mal. Intentá de nuevo.
+      </p>
+
+      <button
+        type="submit"
+        id="form-submit"
+        class="bg-electric text-white font-display font-bold text-[13px] uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-black transition-colors duration-200 mt-2"
+      >
+        ENVIAR CONSULTA
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('booking-modal')!;
+  const openBtn = document.getElementById('open-booking-modal')!;
+  const closeBtn = document.getElementById('close-booking-modal')!;
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+  const successMsg = document.getElementById('form-success')!;
+  const errorMsg = document.getElementById('form-error')!;
+  const submitBtn = document.getElementById('form-submit') as HTMLButtonElement;
+
+  function openModal() {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.textContent = 'ENVIANDO...';
+    submitBtn.disabled = true;
+    successMsg.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.reset();
+        successMsg.classList.remove('hidden');
+        submitBtn.textContent = 'ENVIADO ✓';
+      } else {
+        errorMsg.classList.remove('hidden');
+        submitBtn.textContent = 'ENVIAR CONSULTA';
+        submitBtn.disabled = false;
+      }
+    } catch {
+      errorMsg.classList.remove('hidden');
+      submitBtn.textContent = 'ENVIAR CONSULTA';
+      submitBtn.disabled = false;
+    }
+  });
+</script>

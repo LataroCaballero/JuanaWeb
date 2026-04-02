@@ -10,10 +10,10 @@
 
 @theme {
   /* Brand palette */
-  --color-electric:       #0055ff;
+  --color-electric:       #0260F4;
   --color-electric-light: #b6c4ff;
   --color-surface:        #131313;
-  --color-on-surface:     #e5e2e1;
+  --color-on-surface:     #F4F4F4;
   --color-surface-low:    #1a1a1a;
   --color-surface-high:   #353534;
   --color-error:          #ffb4ab;

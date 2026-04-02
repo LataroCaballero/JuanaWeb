@@ -42,19 +42,19 @@
 
   /* Brand color controlled by data-section attribute */
   #nav-brand {
-    color: #c13301; /* default: house red */
+    color: #D73F18; /* default: house red */
   }
   #main-nav[data-section="truck"] #nav-brand {
-    color: #0055ff;
+    color: #0260F4;
   }
 
   /* Link hover color */
   .nav-link:hover {
-    background: #c13301;
+    background: #D73F18;
     color: #fff;
   }
   #main-nav[data-section="truck"] .nav-link:hover {
-    background: #0055ff;
+    background: #0260F4;
     color: #fff;
   }
 </style>
@@ -72,12 +72,16 @@
   // Everything else (hero, top of page) = "house" (red)
   const truckSections = ['historia', 'ubicaciones'];
 
+  const brand = document.getElementById('nav-brand')!;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = (entry.target as HTMLElement).id;
-          nav.dataset.section = truckSections.includes(id) ? 'truck' : 'house';
+          const isTruck = truckSections.includes(id);
+          nav.dataset.section = isTruck ? 'truck' : 'house';
+          brand.textContent = isTruck ? 'JUANA TRUCK' : 'JUANA HOUSE';
         }
       });
     },

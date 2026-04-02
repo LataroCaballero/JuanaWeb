@@ -14,7 +14,6 @@ export async function initHeroCanvas(wrapper: HTMLElement): Promise<() => void> 
   renderer.setSize(getSize(), getSize());
   wrapper.appendChild(renderer.domElement);
 
-  // Resize observer — keep canvas square with wrapper
   const ro = new ResizeObserver(() => {
     const s = getSize();
     renderer.setSize(s, s);
@@ -39,30 +38,38 @@ export async function initHeroCanvas(wrapper: HTMLElement): Promise<() => void> 
 
   // 3. Materials
   const redMat = new THREE.MeshStandardMaterial({
-    color: 0xc13301,
+    color: 0xD73F18,
+    metalness: 0.6,
+    roughness: 0.3,
+  });
+
+  const blueMat = new THREE.MeshStandardMaterial({
+    color: 0x0260F4,
     metalness: 0.6,
     roughness: 0.3,
   });
 
   const whiteMat = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
+    color: 0xF4F4F4,
     metalness: 0.25,
     roughness: 0.28,
   });
 
-  // 4. Depth constants — white always protrudes more than red
-  const RED_DEPTH = 0.13;
+  // 4. Depth constants
+  const FACE_DEPTH = 0.13;
   const WHITE_DEPTH = 0.28;
-  const WHITE_Z = 0.02; // small offset to avoid z-fighting on shared base
-
-  const group = new THREE.Group();
+  const WHITE_Z = 0.02;
   const CURVE_SEGS = 64;
 
-  // 5. Red circle base (r = 1.5, bevel for soft edge)
+  const group = new THREE.Group();
+
+  // ── FRONT FACE (rojo — up-arrows + smile) ───────────────────────────────────
+
+  // Red circle base
   const circleShape = new THREE.Shape();
   circleShape.absarc(0, 0, 1.5, 0, Math.PI * 2, false);
   group.add(
-    mesh(circleShape, RED_DEPTH, redMat, {
+    mesh(circleShape, FACE_DEPTH, redMat, {
       bevelEnabled: true,
       bevelThickness: 0.04,
       bevelSize: 0.04,
@@ -71,24 +78,21 @@ export async function initHeroCanvas(wrapper: HTMLElement): Promise<() => void> 
     })
   );
 
-  // 6. White ring border (annulus via evenodd hole)
+  // White ring border
   const ringShape = new THREE.Shape();
   ringShape.absarc(0, 0, 1.38, 0, Math.PI * 2, false);
   const ringHole = new THREE.Path();
   ringHole.absarc(0, 0, 1.20, 0, Math.PI * 2, false);
   ringShape.holes.push(ringHole);
-  group.add(
-    mesh(ringShape, WHITE_DEPTH, whiteMat, { curveSegments: CURVE_SEGS }, WHITE_Z)
-  );
+  group.add(mesh(ringShape, WHITE_DEPTH, whiteMat, { curveSegments: CURVE_SEGS }, WHITE_Z));
 
-  // 7. Up-arrow eyes
-  // Each arrow: triangle tip + rectangular stem
-  function makeArrow(cx: number, cy: number): THREE.Mesh {
-    const AW = 0.175; // arrow head half-width
-    const SW = 0.105; // stem half-width
-    const TIP_Y = cy + 0.25;
-    const HEAD_BASE_Y = cy + 0.06;
-    const STEM_BOT_Y = cy - 0.20;
+  // Up-arrow eyes
+  function makeArrowUp(cx: number, cy: number): THREE.Mesh {
+    const AW = 0.240;
+    const SW = 0.140;
+    const TIP_Y = cy + 0.34;
+    const HEAD_BASE_Y = cy + 0.08;
+    const STEM_BOT_Y = cy - 0.27;
 
     const s = new THREE.Shape();
     s.moveTo(cx - AW, HEAD_BASE_Y);
@@ -102,38 +106,84 @@ export async function initHeroCanvas(wrapper: HTMLElement): Promise<() => void> 
     return mesh(s, WHITE_DEPTH, whiteMat, { curveSegments: 4 }, WHITE_Z);
   }
 
-  group.add(makeArrow(-0.44, 0.16));
-  group.add(makeArrow(0.44, 0.16));
+  group.add(makeArrowUp(-0.44, 0.16));
+  group.add(makeArrowUp(0.44, 0.16));
 
-  // 8. Smile — thick U-arc (annular sector)
+  // Smile arc
   const SC_Y = -0.06;
-  const S_OUT = 0.56;
-  const S_IN = 0.42;
-  const ANG_START = Math.PI * (7 / 6); // 210° → lower-left
-  const ANG_END = Math.PI * (11 / 6);  // 330° → lower-right
-
   const smileShape = new THREE.Shape();
-  // outer arc CCW from 210° to 330° (curves through bottom = smile curve)
-  smileShape.absarc(0, SC_Y, S_OUT, ANG_START, ANG_END, false);
-  // inner arc CW from 330° back to 210°
-  smileShape.absarc(0, SC_Y, S_IN, ANG_END, ANG_START, true);
+  smileShape.absarc(0, SC_Y, 0.68, Math.PI * (7 / 6), Math.PI * (11 / 6), false);
+  smileShape.absarc(0, SC_Y, 0.52, Math.PI * (11 / 6), Math.PI * (7 / 6), true);
   smileShape.closePath();
+  group.add(mesh(smileShape, WHITE_DEPTH, whiteMat, { curveSegments: 48 }, WHITE_Z));
 
-  group.add(
-    mesh(smileShape, WHITE_DEPTH, whiteMat, { curveSegments: 48 }, WHITE_Z)
+  // ── BACK FACE (azul — ← ← | ● ) ────────────────────────────────────────────
+  // backGroup rotated π on Y → its local +z extrudes BACKWARD in world space
+  // Local x/y coordinates map to viewer x/y correctly when viewing the back face
+
+  const backGroup = new THREE.Group();
+  backGroup.rotation.y = Math.PI;
+
+  // Blue circle base
+  const blueCircleShape = new THREE.Shape();
+  blueCircleShape.absarc(0, 0, 1.5, 0, Math.PI * 2, false);
+  backGroup.add(
+    mesh(blueCircleShape, FACE_DEPTH, blueMat, {
+      bevelEnabled: true,
+      bevelThickness: 0.04,
+      bevelSize: 0.04,
+      bevelSegments: 8,
+      curveSegments: CURVE_SEGS,
+    })
   );
 
-  // Center group depth so front face is roughly at z=0 for camera
-  group.position.z = -(RED_DEPTH / 2);
+  // White ring border
+  const backRingShape = new THREE.Shape();
+  backRingShape.absarc(0, 0, 1.38, 0, Math.PI * 2, false);
+  const backRingHole = new THREE.Path();
+  backRingHole.absarc(0, 0, 1.20, 0, Math.PI * 2, false);
+  backRingShape.holes.push(backRingHole);
+  backGroup.add(mesh(backRingShape, WHITE_DEPTH, whiteMat, { curveSegments: CURVE_SEGS }, WHITE_Z));
+
+  // Eyes: same up-arrows as front face
+  backGroup.add(makeArrowUp(-0.44, 0.16));
+  backGroup.add(makeArrowUp(0.44, 0.16));
+
+  // Mouth: straight horizontal line
+  const MY = -0.40;  // vertical center of mouth
+  const MH = 0.085;  // half-height of line
+  const MW = 0.56;   // half-width of line
+  const mouthShape = new THREE.Shape();
+  mouthShape.moveTo(-MW, MY - MH);
+  mouthShape.lineTo( MW, MY - MH);
+  mouthShape.lineTo( MW, MY + MH);
+  mouthShape.lineTo(-MW, MY + MH);
+  mouthShape.closePath();
+  backGroup.add(mesh(mouthShape, WHITE_DEPTH, whiteMat, {}, WHITE_Z));
+
+  // Tongue: semicircle below-left, flat edge flush with bottom of mouth
+  const tongueR  = 0.27;
+  const tongueCX = -0.22;      // left-of-center, under the mouth
+  const tongueCY = MY - MH;    // top of tongue = bottom edge of mouth
+  const tongueShape = new THREE.Shape();
+  // counter-clockwise from π to 0 traces the bottom half of the circle
+  tongueShape.absarc(tongueCX, tongueCY, tongueR, Math.PI, 0, false);
+  tongueShape.closePath();
+  backGroup.add(mesh(tongueShape, WHITE_DEPTH, whiteMat, { curveSegments: 32 }, WHITE_Z));
+
+  group.add(backGroup);
+
+  // Center coin on z axis (front 0→+FACE_DEPTH, back 0→-FACE_DEPTH)
+  group.position.z = 0;
   scene.add(group);
 
-  // 9. Animation — gentle Y-sway + float
+  // 9. Animation — continuous full rotation + gentle float
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rafId: number;
 
   function animate(ts: number) {
     const t = ts / 1000;
-    group.rotation.y = Math.sin(t * 0.5) * 0.45;
+    group.rotation.y = t * 0.65;             // one full spin ~9.7 s
     group.position.y = Math.sin(t * 0.7) * 0.15;
     renderer.render(scene, camera);
     rafId = requestAnimationFrame(animate);
