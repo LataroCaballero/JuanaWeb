@@ -118,3 +118,15 @@ None — sharp is a devDependency already in package.json.
 ---
 *Phase: 04-motion-image-pipeline*
 *Completed: 2026-03-26*
+
+## Self-Check: PASSED
+
+- FOUND: src/assets/images/historia-truck.jpg
+- FOUND: src/assets/images/ubicacion-iron-man.jpg
+- FOUND: src/assets/images/ubicacion-cara-sur.jpg
+- FOUND: scripts/gen-placeholders.mjs
+- FOUND: src/components/HistoriaSection.astro (Image component, no placeholder div)
+- FOUND: src/components/UbicacionesSection.astro (Image components, no placeholder divs)
+- FOUND: .planning/phases/04-motion-image-pipeline/04-02-SUMMARY.md
+- FOUND commit: 4fb34bb (Task 1: feat)
+- FOUND commit: daf18ed (docs: metadata)
