@@ -1,8 +1,23 @@
 /* src/styles/global.css */
-/* Font @font-face declarations — BEFORE tailwindcss import (Pitfall 6) */
-@import '@fontsource/space-grotesk/700.css';
-/* NOTE: Space Grotesk max weight is 700 — 900 does not exist */
-@import '@fontsource/work-sans/500.css';
+/* Brand fonts — self-hosted, loaded before Tailwind */
+@font-face {
+  font-family: 'Cakra';
+  src:
+    url('/fonts/Cakra-Normal.woff2') format('woff2'),
+    url('/fonts/Cakra-Normal.woff')  format('woff'),
+    url('/fonts/Cakra-Normal.otf')   format('opentype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueExtended';
+  src: url('/fonts/HelveticaNeue-Extended.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @import "tailwindcss";
 
@@ -12,6 +27,7 @@
   /* Brand palette */
   --color-electric:       #0260F4;
   --color-electric-light: #b6c4ff;
+  --color-house:          #D73F18;
   --color-surface:        #131313;
   --color-on-surface:     #F4F4F4;
   --color-surface-low:    #1a1a1a;
@@ -19,8 +35,8 @@
   --color-error:          #ffb4ab;
 
   /* Font families */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body:    'Work Sans', system-ui, sans-serif;
+  --font-display: 'Cakra', system-ui, sans-serif;
+  --font-body:    'HelveticaNeueExtended', system-ui, sans-serif;
 
   /* Zero Roundedness — override all radius scales */
   --radius-sm:  0px;

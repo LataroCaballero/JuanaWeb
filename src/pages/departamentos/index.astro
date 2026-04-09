@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FooterSection from '../../components/FooterSection.astro';
+import { departamentos, tipoLabel } from '../../data/departamentos';
+---
+
+<BaseLayout
+  title="Estadías Temporales — Juana House"
+  description="Departamentos de diseño para estadías únicas en San Juan y Barreal. Reservá tu lugar en Juana House."
+>
+
+  <!-- Nav inline para sub-páginas -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 scrolled">
+    <nav class="flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto">
+      <a href="/" class="font-display font-bold text-3xl tracking-tighter uppercase text-house">
+        JUANA HOUSE
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#historia"
+           class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center hover:bg-house hover:text-white transition-none">
+          NUESTRA HISTORIA
+        </a>
+        <a href="/departamentos"
+           class="font-display font-bold text-[11px] uppercase tracking-tighter text-white px-4 py-3 min-h-[44px] flex items-center bg-house">
+          ESTADÍAS
+        </a>
+      </div>
+      <a href="https://instagram.com/juana.onyourday"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:text-house transition-none">
+        @juana.onyourday ↗
+      </a>
+    </nav>
+  </header>
+
+  <main class="pt-[72px]">
+
+    <!-- Hero strip -->
+    <div class="bg-surface-low border-b border-surface-high">
+      <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-20">
+        <span class="text-house text-[11px] font-display font-bold uppercase tracking-widest block mb-4">
+          JUANA HOUSE — SAN JUAN & BARREAL
+        </span>
+        <h1 class="font-display font-bold uppercase leading-none tracking-tighter text-on-surface"
+            style="font-size: clamp(3rem, 7vw, 7rem);">
+          ESTADÍAS<br/>TEMPORALES
+        </h1>
+        <p class="font-body text-base text-on-surface/60 mt-6 max-w-lg leading-relaxed">
+          Departamentos de diseño para espíritus nómadas. Buscá por fecha, filtrá por tipo y encontrá tu lugar en Juana.
+        </p>
+      </div>
+    </div>
+
+    <!-- Search & Filter bar -->
+    <div class="bg-surface sticky top-[72px] z-40 border-b border-surface-high">
+      <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-4">
+        <div id="search-bar" class="flex flex-col md:flex-row gap-0 md:border md:border-surface-high">
+
+          <!-- Check-in -->
+          <div class="flex flex-col border border-surface-high md:border-0 md:border-r md:border-r-surface-high flex-1 px-5 py-3 group focus-within:border-house md:focus-within:border-r-electric">
+            <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">CHECK-IN</label>
+            <input
+              id="filter-checkin"
+              type="date"
+              class="bg-transparent text-on-surface font-body text-sm focus:outline-none appearance-none [color-scheme:dark]"
+            />
+          </div>
+
+          <!-- Check-out -->
+          <div class="flex flex-col border border-t-0 md:border-t md:border-0 border-surface-high md:border-r md:border-r-surface-high flex-1 px-5 py-3">
+            <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">CHECK-OUT</label>
+            <input
+              id="filter-checkout"
+              type="date"
+              class="bg-transparent text-on-surface font-body text-sm focus:outline-none appearance-none [color-scheme:dark]"
+            />
+          </div>
+
+          <!-- Huéspedes -->
+          <div class="flex flex-col border border-t-0 md:border-t md:border-0 border-surface-high md:border-r md:border-r-surface-high px-5 py-3 min-w-[160px]">
+            <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">HUÉSPEDES</label>
+            <select
+              id="filter-guests"
+              class="bg-transparent text-on-surface font-body text-sm focus:outline-none cursor-pointer"
+            >
+              <option value="0">Cualquier cantidad</option>
+              <option value="2">Hasta 2 personas</option>
+              <option value="3">Hasta 3 personas</option>
+              <option value="5">Hasta 5 personas</option>
+            </select>
+          </div>
+
+          <!-- Tipo -->
+          <div class="flex flex-col border border-t-0 md:border-t md:border-0 border-surface-high md:border-r md:border-r-surface-high px-5 py-3 min-w-[180px]">
+            <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-1">TIPO</label>
+            <select
+              id="filter-tipo"
+              class="bg-transparent text-on-surface font-body text-sm focus:outline-none cursor-pointer"
+            >
+              <option value="todos">Todos los espacios</option>
+              <option value="studio">Studio</option>
+              <option value="1-dorm">1 Dormitorio</option>
+              <option value="2-dorm">2 Dormitorios</option>
+            </select>
+          </div>
+
+          <!-- Botón buscar -->
+          <button
+            id="btn-buscar"
+            class="bg-house text-white font-display font-bold text-[13px] uppercase tracking-widest px-10 py-3 hover:bg-white hover:text-black transition-colors duration-200 flex items-center gap-2"
+          >
+            BUSCAR
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados -->
+    <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-16">
+
+      <!-- Count + chips -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
+        <p id="result-count" class="font-body text-[11px] uppercase tracking-widest text-on-surface/50">
+          {departamentos.length} ESPACIOS ENCONTRADOS
+        </p>
+        <div class="flex gap-0 flex-wrap">
+          {(['todos', 'studio', '1-dorm', '2-dorm'] as const).map((chip) => (
+            <button
+              class="chip-filter font-display font-bold text-[11px] uppercase tracking-widest px-5 py-2 border border-surface-high text-on-surface/60 hover:text-on-surface hover:bg-surface-high transition-none"
+              data-chip={chip}
+            >
+              {chip === 'todos' ? 'TODOS' : chip === 'studio' ? 'STUDIO' : chip === '1-dorm' ? '1 DORM' : '2 DORM'}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Grid de cards -->
+      <div id="dep-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+        {departamentos.map((dep) => (
+          <article
+            class="dep-card group relative border-r border-b border-surface-high last:border-r-0"
+            data-tipo={dep.tipo}
+            data-capacidad={dep.capacidad}
+            data-disponible={dep.disponible}
+          >
+            <!-- Imagen -->
+            <div class="relative h-[300px] overflow-hidden">
+              <img
+                src={`https://picsum.photos/seed/${dep.imageSeed}/800/600`}
+                alt={dep.nombre}
+                class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-house/20 mix-blend-multiply group-hover:bg-transparent transition-all duration-700"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+
+              <!-- Badge disponible / no disponible -->
+              {!dep.disponible && (
+                <div class="absolute top-4 left-4">
+                  <span class="bg-surface-high text-on-surface/60 px-3 py-1 font-display font-bold text-[10px] uppercase tracking-widest">
+                    NO DISPONIBLE
+                  </span>
+                </div>
+              )}
+
+              <!-- Tipo chip -->
+              <div class="absolute bottom-4 left-4">
+                <span class="bg-house text-white px-3 py-1 font-display font-bold text-[10px] uppercase tracking-widest">
+                  {tipoLabel[dep.tipo]}
+                </span>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="p-8 bg-surface">
+              <h3 class="font-display font-bold text-[32px] uppercase leading-none tracking-tighter text-on-surface mb-2">
+                {dep.nombre}
+              </h3>
+              <p class="font-body text-sm text-on-surface/60 mb-6 leading-relaxed">
+                {dep.descripcion}
+              </p>
+
+              <!-- Meta row -->
+              <div class="flex gap-6 mb-6 border-t border-surface-high pt-4">
+                <div>
+                  <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">PRECIO</span>
+                  <span class="font-display font-bold text-lg text-on-surface">${dep.precio.toLocaleString('es-AR')}<span class="text-[11px] font-body text-on-surface/50">/noche</span></span>
+                </div>
+                <div>
+                  <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">HUÉSPEDES</span>
+                  <span class="font-display font-bold text-lg text-on-surface">{dep.capacidad}</span>
+                </div>
+                <div>
+                  <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">SUPERFICIE</span>
+                  <span class="font-display font-bold text-lg text-on-surface">{dep.superficie} m²</span>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              {dep.disponible ? (
+                <a
+                  href={`/departamentos/${dep.id}`}
+                  class="bg-house text-white font-display font-bold text-[13px] uppercase tracking-widest px-6 py-3 hover:bg-white hover:text-black transition-colors duration-200 inline-block"
+                >
+                  VER DEPARTAMENTO →
+                </a>
+              ) : (
+                <span class="font-display font-bold text-[13px] uppercase tracking-widest px-6 py-3 border border-surface-high text-on-surface/30 inline-block cursor-not-allowed">
+                  OCUPADO
+                </span>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Empty state (oculto por defecto) -->
+      <div id="empty-state" class="hidden text-center py-32">
+        <p class="font-display font-bold text-[11px] uppercase tracking-widest text-on-surface/40 mb-4">
+          SIN RESULTADOS
+        </p>
+        <p class="font-body text-sm text-on-surface/40">
+          Ningún espacio coincide con tu búsqueda. Probá con otros filtros.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <FooterSection />
+</BaseLayout>
+
+<style>
+  #main-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(19, 19, 19, 0.92);
+  }
+
+  select option {
+    background: #1a1a1a;
+    color: #F4F4F4;
+  }
+
+  .chip-filter.active {
+    background: #D73F18;
+    color: #fff;
+    border-color: #D73F18;
+  }
+</style>
+
+<script>
+  // Datos para filtrado client-side
+  const cards = document.querySelectorAll<HTMLElement>('.dep-card');
+  const grid = document.getElementById('dep-grid')!;
+  const emptyState = document.getElementById('empty-state')!;
+  const resultCount = document.getElementById('result-count')!;
+  const chips = document.querySelectorAll<HTMLElement>('.chip-filter');
+  const filterTipo = document.getElementById('filter-tipo') as HTMLSelectElement;
+  const filterGuests = document.getElementById('filter-guests') as HTMLSelectElement;
+  const btnBuscar = document.getElementById('btn-buscar')!;
+
+  let activeTipo = 'todos';
+
+  function applyFilters() {
+    // Leer filtro tipo desde select o chips (el último que se cambió)
+    const tipoValue = activeTipo !== 'todos' ? activeTipo : filterTipo.value;
+    const guestsValue = parseInt(filterGuests.value) || 0;
+
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cardTipo = card.dataset.tipo!;
+      const cardCap = parseInt(card.dataset.capacidad!);
+
+      const tipoMatch = tipoValue === 'todos' || cardTipo === tipoValue;
+      const guestsMatch = guestsValue === 0 || cardCap >= guestsValue;
+
+      if (tipoMatch && guestsMatch) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    resultCount.textContent = `${visible} ESPACIO${visible !== 1 ? 'S' : ''} ENCONTRADO${visible !== 1 ? 'S' : ''}`;
+    emptyState.classList.toggle('hidden', visible > 0);
+    grid.classList.toggle('hidden', visible === 0);
+  }
+
+  // Chips de tipo
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeTipo = chip.dataset.chip!;
+      filterTipo.value = activeTipo;
+      chips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  // Sincronizar select de tipo con chips
+  filterTipo.addEventListener('change', () => {
+    activeTipo = filterTipo.value;
+    chips.forEach((c) => {
+      c.classList.toggle('active', c.dataset.chip === activeTipo);
+    });
+    applyFilters();
+  });
+
+  // Botón buscar
+  btnBuscar.addEventListener('click', applyFilters);
+  filterGuests.addEventListener('change', applyFilters);
+
+  // Init: marcar chip "TODOS" como activo
+  chips[0]?.classList.add('active');
+</script>

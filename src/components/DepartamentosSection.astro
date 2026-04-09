@@ -1,0 +1,94 @@
+---
+import { departamentos, tipoLabel } from '../data/departamentos';
+
+// Mostrar solo los primeros 3 en la landing
+const preview = departamentos.slice(0, 3);
+---
+
+<section id="departamentos" class="bg-surface py-32 overflow-hidden">
+  <div class="max-w-[1920px] mx-auto px-8 md:px-16">
+
+    <!-- Header editorial -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-0 mb-20">
+
+      <!-- Título -->
+      <div class="md:col-span-7 mb-10 md:mb-0">
+        <span class="text-house text-[11px] font-display font-bold uppercase tracking-widest block mb-6">
+          ESTADÍAS TEMPORALES — JUANA HOUSE
+        </span>
+        <h2 class="font-display font-bold uppercase leading-none tracking-tighter text-on-surface"
+            style="font-size: clamp(3.5rem, 8vw, 8rem);">
+          HOSPEDARSE<br/>EN JUANA
+        </h2>
+      </div>
+
+      <!-- Copy + CTA -->
+      <div class="md:col-span-5 flex flex-col justify-end">
+        <p class="font-body text-base text-on-surface/70 mb-10 max-w-sm leading-relaxed">
+          Más que café. Juana House alberga estadías únicas en el corazón urbano de San Juan — y en las alturas de Barreal. Departamentos de diseño para espíritus nómadas que buscan más que un lugar donde dormir.
+        </p>
+        <a
+          href="/departamentos"
+          class="bg-house text-white font-display font-bold text-[13px] uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-black transition-colors duration-200 w-fit"
+        >
+          VER DISPONIBILIDAD →
+        </a>
+      </div>
+    </div>
+
+    <!-- Preview cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+      {preview.map((dep) => (
+        <a href={`/departamentos/${dep.id}`} class="relative h-[480px] group overflow-hidden block">
+          <!-- Imagen placeholder con color de marca -->
+          <img
+            src={`https://picsum.photos/seed/${dep.imageSeed}/800/600`}
+            alt={dep.nombre}
+            class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+            loading="lazy"
+          />
+
+          <!-- Overlay azul que desaparece al hover -->
+          <div class="absolute inset-0 bg-house/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-700"></div>
+
+          <!-- Gradiente oscuro en la base -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+          <!-- Info block -->
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <span class="bg-house text-white px-3 py-1 text-[10px] font-display font-bold tracking-widest uppercase mb-3 block w-fit">
+              {tipoLabel[dep.tipo]}
+            </span>
+            <h3 class="font-display font-bold text-[42px] text-white uppercase leading-none tracking-tighter">
+              {dep.nombre}
+            </h3>
+            <p class="text-white/60 font-body text-[11px] uppercase tracking-widest mt-2">
+              ${dep.precio.toLocaleString('es-AR')} / NOCHE · {dep.capacidad} HUÉSPEDES
+            </p>
+          </div>
+
+          <!-- Hover CTA -->
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="bg-white text-black font-display font-bold text-[11px] uppercase tracking-widest px-4 py-2">
+              VER →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Footer row -->
+    <div class="border-t border-surface-high mt-0 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <span class="font-body text-[11px] uppercase tracking-widest text-on-surface/40">
+        {departamentos.length} ESPACIOS DISPONIBLES — SAN JUAN & BARREAL
+      </span>
+      <a
+        href="/departamentos"
+        class="font-display font-bold text-[11px] uppercase tracking-widest text-house hover:text-on-surface transition-none"
+      >
+        VER TODOS LOS DEPARTAMENTOS →
+      </a>
+    </div>
+
+  </div>
+</section>

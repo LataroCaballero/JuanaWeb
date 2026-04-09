@@ -3,19 +3,23 @@
 <header id="main-nav" class="fixed top-0 left-0 right-0 z-50">
   <nav class="flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto">
     <!-- Left: Brand logotype -->
-    <a href="#hero" id="nav-brand" class="font-display font-bold text-3xl tracking-tighter uppercase">
+    <a href="/" id="nav-brand" class="font-display font-bold text-3xl tracking-tighter uppercase">
       JUANA HOUSE
     </a>
 
     <!-- Center: Anchor nav links (hidden on mobile < md) -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#historia"
+      <a href="/#historia"
          class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center transition-none">
         NUESTRA HISTORIA
       </a>
-      <a href="#ubicaciones"
+      <a href="/#ubicaciones"
          class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center transition-none">
         UBICACIONES
+      </a>
+      <a href="/departamentos"
+         class="nav-link font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center transition-none">
+        ESTADÍAS
       </a>
     </div>
 
@@ -92,8 +96,8 @@
     }
   );
 
-  // Observe hero + truck sections
-  ['hero', 'historia', 'ubicaciones'].forEach((id) => {
+  // Observe hero + truck sections + departamentos
+  ['hero', 'historia', 'ubicaciones', 'departamentos'].forEach((id) => {
     const el = document.getElementById(id);
     if (el) observer.observe(el);
   });

@@ -19,6 +19,7 @@ mm.add(
     if (reduceMotion) {
       gsap.set('#historia', { opacity: 1, y: 0 });
       gsap.set('#ubicaciones', { opacity: 1, y: 0 });
+      gsap.set('#departamentos', { opacity: 1, y: 0 });
       return;
     }
 
@@ -41,6 +42,18 @@ mm.add(
       ease: 'power2.out',
       scrollTrigger: {
         trigger: '#ubicaciones',
+        start: 'top 85%',
+        once: true,
+      },
+    });
+
+    gsap.from('#departamentos', {
+      opacity: 0,
+      y: 60,
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#departamentos',
         start: 'top 85%',
         once: true,
       },

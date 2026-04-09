@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import HeroCanvas from '../components/HeroCanvas.astro';
 import HistoriaSection from '../components/HistoriaSection.astro';
 import UbicacionesSection from '../components/UbicacionesSection.astro';
+import DepartamentosSection from '../components/DepartamentosSection.astro';
 import MarqueeSection from '../components/MarqueeSection.astro';
 import FooterSection from '../components/FooterSection.astro';
 ---
@@ -19,6 +20,12 @@ import FooterSection from '../components/FooterSection.astro';
     />
     <HistoriaSection />
     <UbicacionesSection />
+    <MarqueeSection
+      items={['ESTADÍAS TEMPORALES', 'NOMAD STAYS']}
+      bg="#D73F18"
+      color="rgba(255,255,255,0.25)"
+    />
+    <DepartamentosSection />
   </main>
   <MarqueeSection
     items={['JUANATRUCK®', 'NOMAD SOUL']}

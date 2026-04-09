@@ -1,9 +1,6 @@
 ---
 import '../styles/global.css';
 
-import spaceGroteskW700 from '@fontsource/space-grotesk/files/space-grotesk-latin-700-normal.woff2?url';
-import workSansW500 from '@fontsource/work-sans/files/work-sans-latin-500-normal.woff2?url';
-
 interface Props {
   title?: string;
   description?: string;
@@ -22,9 +19,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" as="font" type="font/woff2"
-      href={spaceGroteskW700} crossorigin="anonymous" />
-    <link rel="preload" as="font" type="font/woff2"
-      href={workSansW500} crossorigin="anonymous" />
+      href="/fonts/Cakra-Normal.woff2" crossorigin="anonymous" />
     <link rel="icon" type="image/svg+xml" href="/assets/smiley-logo.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />

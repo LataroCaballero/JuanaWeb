@@ -1,0 +1,419 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FooterSection from '../../components/FooterSection.astro';
+import { departamentos, tipoLabel } from '../../data/departamentos';
+
+export function getStaticPaths() {
+  return departamentos.map((dep) => ({
+    params: { id: dep.id },
+    props: { dep },
+  }));
+}
+
+const { dep } = Astro.props;
+
+// Otros departamentos para el bloque "también te puede interesar"
+const otros = departamentos.filter((d) => d.id !== dep.id).slice(0, 3);
+---
+
+<BaseLayout
+  title={`${dep.nombre} — Juana House`}
+  description={dep.descripcion}
+>
+
+  <!-- Nav -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 scrolled">
+    <nav class="flex justify-between items-center px-6 py-4 max-w-[1920px] mx-auto">
+      <a href="/" class="font-display font-bold text-3xl tracking-tighter uppercase text-house">
+        JUANA HOUSE
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#historia"
+           class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center hover:bg-house hover:text-white transition-none">
+          NUESTRA HISTORIA
+        </a>
+        <a href="/departamentos"
+           class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 px-4 py-3 min-h-[44px] flex items-center hover:bg-house hover:text-white transition-none">
+          ESTADÍAS
+        </a>
+      </div>
+      <a href="https://instagram.com/juana.onyourday"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="font-display font-bold text-[11px] uppercase tracking-tighter text-on-surface/80 hover:text-house transition-none">
+        @juana.onyourday ↗
+      </a>
+    </nav>
+  </header>
+
+  <main class="pt-[72px]">
+
+    <!-- Breadcrumb -->
+    <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-4 border-b border-surface-high">
+      <nav class="flex items-center gap-2 font-body text-[11px] uppercase tracking-widest text-on-surface/40">
+        <a href="/" class="hover:text-house transition-none">JUANA HOUSE</a>
+        <span>—</span>
+        <a href="/departamentos" class="hover:text-house transition-none">ESTADÍAS</a>
+        <span>—</span>
+        <span class="text-on-surface/70">{dep.nombre}</span>
+      </nav>
+    </div>
+
+    <!-- Hero image (primer imagen) -->
+    <div class="relative h-[55vh] md:h-[70vh] overflow-hidden">
+      <img
+        src={`https://picsum.photos/seed/${dep.imageSeed}/1600/900`}
+        alt={dep.nombre}
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-surface/70 via-transparent to-transparent"></div>
+
+      <!-- Floating tag -->
+      <div class="absolute bottom-10 left-8 md:left-16">
+        <span class="bg-house text-white px-4 py-2 font-display font-bold text-[11px] uppercase tracking-widest block w-fit mb-3">
+          {tipoLabel[dep.tipo]} — {dep.piso}
+        </span>
+        <h1 class="font-display font-bold uppercase leading-none tracking-tighter text-white"
+            style="font-size: clamp(3rem, 7vw, 7rem);">
+          {dep.nombre}
+        </h1>
+        <p class="font-body text-on-surface/70 text-sm mt-3 font-bold uppercase tracking-widest">
+          {dep.ubicacion}
+        </p>
+      </div>
+    </div>
+
+    <!-- Content grid -->
+    <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+
+        <!-- Left: info + galería -->
+        <div class="lg:col-span-7 lg:pr-16 border-b lg:border-b-0 lg:border-r border-surface-high pb-12 lg:pb-0">
+
+          <!-- Tagline -->
+          <p class="font-display font-bold text-[11px] uppercase tracking-widest text-house mb-8">
+            "{dep.tagline}"
+          </p>
+
+          <!-- Descripción larga -->
+          <p class="font-body text-base text-on-surface/80 leading-relaxed mb-12 max-w-prose">
+            {dep.descripcionLarga}
+          </p>
+
+          <!-- Meta badges -->
+          <div class="flex gap-0 mb-12 border border-surface-high w-fit">
+            <div class="px-6 py-4 border-r border-surface-high">
+              <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">SUPERFICIE</span>
+              <span class="font-display font-bold text-2xl text-on-surface">{dep.superficie} m²</span>
+            </div>
+            <div class="px-6 py-4 border-r border-surface-high">
+              <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">HUÉSPEDES</span>
+              <span class="font-display font-bold text-2xl text-on-surface">{dep.capacidad}</span>
+            </div>
+            <div class="px-6 py-4">
+              <span class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-1">PISO</span>
+              <span class="font-display font-bold text-2xl text-on-surface">{dep.piso}</span>
+            </div>
+          </div>
+
+          <!-- Amenidades -->
+          <div class="mb-12">
+            <div class="border-t-4 border-house pt-6 mb-6">
+              <span class="font-display font-bold text-[11px] uppercase tracking-widest text-house">
+                AMENIDADES INCLUIDAS
+              </span>
+            </div>
+            <div class="grid grid-cols-2 gap-0">
+              {dep.amenidades.map((item) => (
+                <div class="flex items-center gap-3 py-3 border-b border-surface-high">
+                  <span class="w-1 h-1 bg-house block flex-shrink-0"></span>
+                  <span class="font-body text-sm text-on-surface/70">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Galería -->
+          <div>
+            <div class="border-t-4 border-surface-high pt-6 mb-6">
+              <span class="font-display font-bold text-[11px] uppercase tracking-widest text-on-surface/40">
+                GALERÍA
+              </span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              {dep.imageSeeds.map((seed, i) => (
+                <div class="relative aspect-video overflow-hidden group">
+                  <img
+                    src={`https://picsum.photos/seed/${seed}/600/400`}
+                    alt={`${dep.nombre} — foto ${i + 1}`}
+                    class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-house/10 mix-blend-multiply group-hover:bg-transparent transition-all duration-500"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: booking panel (sticky) -->
+        <div class="lg:col-span-5 lg:pl-16 pt-12 lg:pt-0">
+          <div class="lg:sticky lg:top-[96px]">
+
+            <!-- Precio -->
+            <div class="border-b-4 border-house pb-6 mb-8">
+              <span class="font-display font-bold text-[11px] uppercase tracking-widest text-on-surface/40 block mb-2">
+                PRECIO POR NOCHE
+              </span>
+              <span class="font-display font-bold text-on-surface" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+                ${dep.precio.toLocaleString('es-AR')}
+              </span>
+              <span class="font-body text-on-surface/40 text-sm block mt-1">ARS · impuestos incluidos</span>
+            </div>
+
+            {dep.disponible ? (
+              <!-- Booking form -->
+              <form id="booking-form" class="flex flex-col gap-0 border border-surface-high mb-6">
+
+                <!-- Fechas -->
+                <div class="grid grid-cols-2 gap-0">
+                  <div class="flex flex-col border-b border-r border-surface-high px-5 py-4">
+                    <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-2">CHECK-IN</label>
+                    <input
+                      id="res-checkin"
+                      type="date"
+                      name="checkin"
+                      required
+                      class="bg-transparent text-on-surface font-body text-sm focus:outline-none [color-scheme:dark]"
+                    />
+                  </div>
+                  <div class="flex flex-col border-b border-surface-high px-5 py-4">
+                    <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-2">CHECK-OUT</label>
+                    <input
+                      id="res-checkout"
+                      type="date"
+                      name="checkout"
+                      required
+                      class="bg-transparent text-on-surface font-body text-sm focus:outline-none [color-scheme:dark]"
+                    />
+                  </div>
+                </div>
+
+                <!-- Huéspedes -->
+                <div class="flex flex-col border-b border-surface-high px-5 py-4">
+                  <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 mb-2">HUÉSPEDES</label>
+                  <select
+                    id="res-guests"
+                    name="guests"
+                    class="bg-transparent text-on-surface font-body text-sm focus:outline-none cursor-pointer"
+                  >
+                    {Array.from({ length: dep.capacidad }, (_, i) => i + 1).map((n) => (
+                      <option value={n}>{n} {n === 1 ? 'persona' : 'personas'}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <!-- Total calculado -->
+                <div class="flex justify-between items-center px-5 py-4 border-b border-surface-high bg-surface-low">
+                  <span class="font-display font-bold text-[11px] uppercase tracking-widest text-on-surface/60">TOTAL ESTIMADO</span>
+                  <span id="total-price" class="font-display font-bold text-house text-lg">—</span>
+                </div>
+
+                <!-- Nombre -->
+                <div class="px-5 py-4 border-b border-surface-high">
+                  <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-2">NOMBRE</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Tu nombre completo"
+                    class="w-full bg-transparent text-on-surface font-body text-sm focus:outline-none placeholder:text-on-surface/30"
+                  />
+                </div>
+
+                <!-- Email -->
+                <div class="px-5 py-4">
+                  <label class="font-display font-bold text-[9px] uppercase tracking-widest text-on-surface/40 block mb-2">EMAIL</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="tu@email.com"
+                    class="w-full bg-transparent text-on-surface font-body text-sm focus:outline-none placeholder:text-on-surface/30"
+                  />
+                </div>
+
+              </form>
+
+              <!-- Messages -->
+              <p id="res-success" class="hidden text-house font-display font-bold text-[11px] uppercase tracking-widest mb-4">
+                ¡CONSULTA ENVIADA! TE CONTACTAMOS PRONTO.
+              </p>
+              <p id="res-error" class="hidden text-error font-display font-bold text-[11px] uppercase tracking-widest mb-4">
+                ALGO SALIÓ MAL. INTENTÁ DE NUEVO.
+              </p>
+
+              <button
+                id="btn-reservar"
+                type="button"
+                class="w-full bg-house text-white font-display font-bold text-[13px] uppercase tracking-widest py-5 hover:bg-white hover:text-black transition-colors duration-200"
+              >
+                RESERVAR AHORA
+              </button>
+
+              <p class="font-body text-[11px] text-on-surface/40 text-center mt-4 leading-relaxed">
+                No se realiza ningún cargo hasta confirmar.<br/>Respondemos en menos de 24hs.
+              </p>
+            ) : (
+              <div class="border border-surface-high p-8 text-center">
+                <span class="font-display font-bold text-[11px] uppercase tracking-widest text-on-surface/40 block mb-4">
+                  ACTUALMENTE OCUPADO
+                </span>
+                <p class="font-body text-sm text-on-surface/50 mb-6">
+                  Este espacio no está disponible. Podés anotarte en lista de espera o explorar otras opciones.
+                </p>
+                <a
+                  href="/departamentos"
+                  class="bg-surface-high text-on-surface font-display font-bold text-[13px] uppercase tracking-widest px-6 py-4 hover:bg-house hover:text-white transition-colors duration-200 inline-block"
+                >
+                  VER OTROS ESPACIOS
+                </a>
+              </div>
+            )}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- También te puede interesar -->
+    <div class="border-t border-surface-high bg-surface-low">
+      <div class="max-w-[1920px] mx-auto px-8 md:px-16 py-16">
+        <div class="flex justify-between items-end mb-10">
+          <div>
+            <span class="text-house text-[11px] font-display font-bold uppercase tracking-widest block mb-3">
+              TAMBIÉN TE PUEDE INTERESAR
+            </span>
+            <h2 class="font-display font-bold text-[40px] uppercase leading-none tracking-tighter text-on-surface">
+              OTROS ESPACIOS
+            </h2>
+          </div>
+          <a href="/departamentos" class="font-display font-bold text-[11px] uppercase tracking-widest text-house hover:text-on-surface transition-none hidden md:block">
+            VER TODOS →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+          {otros.map((otro) => (
+            <a href={`/departamentos/${otro.id}`} class="group relative border border-surface-high hover:border-house transition-none block">
+              <div class="relative h-[220px] overflow-hidden">
+                <img
+                  src={`https://picsum.photos/seed/${otro.imageSeed}/600/400`}
+                  alt={otro.nombre}
+                  class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <span class="text-house font-display font-bold text-[9px] uppercase tracking-widest block mb-1">
+                  {tipoLabel[otro.tipo]}
+                </span>
+                <h3 class="font-display font-bold text-[24px] uppercase leading-none tracking-tighter text-on-surface mb-2">
+                  {otro.nombre}
+                </h3>
+                <p class="font-display font-bold text-on-surface/60 text-[11px] uppercase tracking-widest">
+                  ${otro.precio.toLocaleString('es-AR')}/NOCHE
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <FooterSection />
+</BaseLayout>
+
+<style>
+  #main-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(19, 19, 19, 0.92);
+  }
+  select option {
+    background: #1a1a1a;
+    color: #F4F4F4;
+  }
+</style>
+
+<script define:vars={{ precioPorNoche: dep.precio }}>
+  const checkin = document.getElementById('res-checkin');
+  const checkout = document.getElementById('res-checkout');
+  const totalEl = document.getElementById('total-price');
+  const btnReservar = document.getElementById('btn-reservar');
+  const successMsg = document.getElementById('res-success');
+  const errorMsg = document.getElementById('res-error');
+  const form = document.getElementById('booking-form');
+
+  function calcTotal() {
+    if (!checkin || !checkout || !totalEl) return;
+    const ci = new Date(checkin.value);
+    const co = new Date(checkout.value);
+    if (!checkin.value || !checkout.value || co <= ci) {
+      totalEl.textContent = '—';
+      return;
+    }
+    const noches = Math.round((co.getTime() - ci.getTime()) / (1000 * 60 * 60 * 24));
+    const total = noches * precioPorNoche;
+    totalEl.textContent = `$${total.toLocaleString('es-AR')} (${noches} noche${noches !== 1 ? 's' : ''})`;
+  }
+
+  checkin?.addEventListener('change', calcTotal);
+  checkout?.addEventListener('change', calcTotal);
+
+  // Ajustar fecha mínima de checkout al elegir checkin
+  checkin?.addEventListener('change', () => {
+    if (checkout && checkin.value) {
+      checkout.min = checkin.value;
+      if (checkout.value && checkout.value <= checkin.value) {
+        checkout.value = '';
+        totalEl && (totalEl.textContent = '—');
+      }
+    }
+  });
+
+  // Set fecha mínima de hoy
+  const today = new Date().toISOString().split('T')[0];
+  if (checkin) checkin.min = today;
+
+  // Botón reservar (mockup: simula envío)
+  btnReservar?.addEventListener('click', () => {
+    if (!form) return;
+    const formEl = form as HTMLFormElement;
+
+    if (!formEl.checkValidity()) {
+      formEl.reportValidity();
+      return;
+    }
+
+    if (checkin && checkout && (!checkin.value || !checkout.value)) {
+      alert('Por favor seleccioná las fechas de check-in y check-out.');
+      return;
+    }
+
+    btnReservar.textContent = 'ENVIANDO...';
+    (btnReservar as HTMLButtonElement).disabled = true;
+
+    // Simular envío (mockup)
+    setTimeout(() => {
+      successMsg?.classList.remove('hidden');
+      btnReservar.textContent = 'RESERVA ENVIADA ✓';
+    }, 1200);
+  });
+</script>
